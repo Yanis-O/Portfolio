@@ -17,6 +17,9 @@
   --accent:#2955C4;
   --accent-soft:#E7ECFA;
   --pulse:#E2793D;
+  --pulse-soft:#FBEADD;
+  --c3:#1F8A70;
+  --c3-soft:#E1F1EC;
   --card:#FFFFFF;
   --radius:10px;
 }
@@ -54,8 +57,8 @@ nav .inner{
 }
 nav .brand{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:17px;}
 nav .brand span{color:var(--accent);}
-nav ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;}
-nav a{color:var(--ink-soft);text-decoration:none;font-size:14.5px;}
+nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;}
+nav a{color:var(--ink-soft);text-decoration:none;font-size:14px;}
 nav a:hover{color:var(--accent);}
 
 /* HERO */
@@ -77,10 +80,11 @@ nav a:hover{color:var(--accent);}
   display:inline-flex;align-items:center;gap:8px;
   padding:11px 18px;border-radius:8px;font-size:14.5px;font-weight:600;
   text-decoration:none;border:1px solid transparent;
+  cursor:pointer;
 }
 .btn-primary{background:var(--ink);color:var(--paper);}
 .btn-primary:hover{background:var(--accent);}
-.btn-ghost{border-color:var(--line);color:var(--ink);}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:transparent;}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
 
 .hero-graphic{position:relative;height:290px;}
@@ -95,7 +99,7 @@ nav a:hover{color:var(--accent);}
 
 section{padding:56px 0;}
 section.alt{background:var(--paper-dim);}
-.section-head{margin-bottom:32px;max-width:560px;}
+.section-head{margin-bottom:32px;max-width:600px;}
 .section-head .kicker{color:var(--accent);font-weight:600;font-size:13.5px;margin-bottom:6px;}
 .section-head h2{font-size:27px;font-weight:600;}
 .section-head p{color:var(--ink-soft);margin-top:8px;font-size:15px;}
@@ -135,6 +139,88 @@ section.alt{background:var(--paper-dim);}
 .proj-card .tags{margin-top:11px;display:flex;flex-wrap:wrap;gap:6px;}
 .tag{font-size:11.5px;color:var(--accent);background:var(--accent-soft);padding:3px 8px;border-radius:100px;}
 
+/* ---- BUT: double lecture (compétences / projets) ---- */
+.lecture-tabs{
+  display:inline-flex;gap:4px;background:var(--card);
+  border:1px solid var(--line);border-radius:100px;padding:4px;
+  margin-bottom:30px;
+}
+.lecture-tab{
+  border:none;background:transparent;cursor:pointer;
+  font-family:"Inter",sans-serif;font-size:13.5px;font-weight:600;
+  color:var(--ink-soft);padding:9px 18px;border-radius:100px;
+  transition:background .15s ease, color .15s ease;
+}
+.lecture-tab:hover{color:var(--ink);}
+.lecture-tab.active{background:var(--ink);color:var(--paper);}
+
+.comp-pill{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:100px;
+}
+.comp-pill.c1{color:var(--accent);background:var(--accent-soft);}
+.comp-pill.c2{color:#B0561E;background:var(--pulse-soft);}
+.comp-pill.c3{color:var(--c3);background:var(--c3-soft);}
+
+.comp-grid{display:flex;flex-direction:column;gap:18px;}
+.comp-card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:26px 28px;border-left:4px solid var(--accent);
+}
+.comp-card.c2{border-left-color:var(--pulse);}
+.comp-card.c3{border-left-color:var(--c3);}
+.comp-card .comp-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
+.comp-card .comp-num{
+  font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13px;
+  color:var(--muted);
+}
+.comp-card h3{font-size:19px;font-weight:600;}
+.comp-card .comp-tagline{color:var(--ink-soft);font-size:14.5px;margin-top:8px;max-width:600px;}
+.comp-card .comp-skills{margin:16px 0 0 0;padding-left:18px;color:var(--ink-soft);font-size:14px;}
+.comp-card .comp-skills li{margin-bottom:4px;}
+.comp-card .comp-proofs{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);}
+.comp-card .comp-proofs .label{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;margin-bottom:9px;}
+.comp-chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+.comp-chip{
+  font-size:13px;color:var(--ink);background:var(--paper-dim);
+  border:1px solid var(--line);padding:6px 12px;border-radius:8px;
+  cursor:pointer;text-align:left;
+}
+.comp-chip:hover{border-color:var(--accent);color:var(--accent);}
+
+.pgrid-but{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.pcard-but{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:19px 21px;scroll-margin-top:100px;
+}
+.pcard-but.flash{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);}
+.pcard-but .date{color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;}
+.pcard-but h4{font-size:15px;margin-top:5px;font-weight:600;}
+.pcard-but .pills{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;}
+
+.matrix-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);}
+table.matrix{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px;}
+table.matrix th, table.matrix td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);}
+table.matrix thead th{
+  font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);
+  font-weight:600;white-space:nowrap;
+}
+table.matrix thead th.center, table.matrix td.center{text-align:center;}
+table.matrix tbody tr:last-child td{border-bottom:none;}
+table.matrix tbody tr:hover{background:var(--paper-dim);}
+table.matrix .mark{color:var(--card);width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;}
+table.matrix .mark.c1{background:var(--accent);}
+table.matrix .mark.c2{background:var(--pulse);}
+table.matrix .mark.c3{background:var(--c3);}
+table.matrix .dash{color:var(--line);}
+
+.legend-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px;color:var(--muted);font-size:13px;}
+.legend-row span{display:inline-flex;align-items:center;gap:7px;}
+.legend-row i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+.legend-row i.c1{background:var(--accent);}
+.legend-row i.c2{background:var(--pulse);}
+.legend-row i.c3{background:var(--c3);}
+
 /* SKILLS */
 .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px 40px;}
 .skill-group .label{color:var(--accent);font-weight:600;font-size:13.5px;margin-bottom:8px;}
@@ -170,10 +256,13 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
   .hero h1{font-size:31px;}
   .about-grid{grid-template-columns:1fr;}
   .proj-grid{grid-template-columns:1fr;}
+  .pgrid-but{grid-template-columns:1fr;}
   .skill-grid{grid-template-columns:1fr;}
   .lang-grid{grid-template-columns:repeat(2,1fr);}
   .contact-card{grid-template-columns:1fr;padding:32px 24px;}
   nav ul{display:none;}
+  .lecture-tabs{width:100%;}
+  .lecture-tab{flex:1;text-align:center;padding:9px 8px;}
 }
 </style>
 </head>
@@ -187,7 +276,8 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
       <li><a href="#apropos">À propos</a></li>
       <li><a href="#parcours">Parcours</a></li>
       <li><a href="#projets">Projets</a></li>
-      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#competences-but">Compétences BUT</a></li>
+      <li><a href="#outils">Outils</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -326,7 +416,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
       <p>Une sélection de projets menés en autonomie ou en groupe, du schéma de données au déploiement.</p>
     </div>
     <div class="proj-grid">
-      
+
       <div class="proj-card">
         <div class="date">Janvier 2024</div>
         <h3>Conception de base de données relationnelle</h3>
@@ -400,11 +490,170 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
   </div>
 </section>
 
-<section class="alt" id="competences">
+<!-- ============ PORTFOLIO BUT — DOUBLE LECTURE ============ -->
+<section class="alt" id="competences-but">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker">Compétences</div>
-      <h2>Boîte à outils</h2>
+      <h2>Compétences et projets, une double lecture</h2>
+      <p>Conformément au référentiel national du BUT Informatique, ce portfolio se lit soit par les trois compétences du diplôme, soit par les projets qui les mobilisent — avec un tableau croisé pour relier les deux.</p>
+    </div>
+
+    <div class="lecture-tabs" role="tablist">
+      <button class="lecture-tab active" data-view="comp" role="tab" aria-selected="true">Par compétences</button>
+      <button class="lecture-tab" data-view="proj" role="tab" aria-selected="false">Par projets</button>
+      <button class="lecture-tab" data-view="matrix" role="tab" aria-selected="false">Tableau croisé</button>
+    </div>
+
+    <!-- VIEW 1 : PAR COMPETENCES -->
+    <div class="lecture-view" data-panel="comp">
+      <div class="comp-grid">
+
+        <div class="comp-card c1">
+          <div class="comp-head">
+            <span class="comp-num">Compétence 1/3</span>
+            <h3>Gérer des données de l'information</h3>
+          </div>
+          <p class="comp-tagline">Concevoir une base de données à partir d'un besoin, l'interroger, la sécuriser, puis restituer la donnée de façon lisible — jusqu'au dashboard.</p>
+          <ul class="comp-skills">
+            <li>Modéliser une base de données relationnelle (Merise, MCD/MLD/MPD, UML)</li>
+            <li>Écrire des requêtes SQL complexes, optimiser et indexer</li>
+            <li>Assurer la confidentialité, l'intégrité et la sécurité des données</li>
+            <li>Construire des dashboards et des visualisations de données</li>
+          </ul>
+          <div class="comp-proofs">
+            <div class="label">Preuves — projets mobilisés</div>
+            <div class="comp-chip-row">
+              <button class="comp-chip" data-jump="p1">Conception de base de données relationnelle</button>
+              <button class="comp-chip" data-jump="p2">Plateforme de gestion de buvette associative</button>
+              <button class="comp-chip" data-jump="p5">Entrepôt de données & Visualisation</button>
+              <button class="comp-chip" data-jump="p6">Portfolio de compétences Qlik Sense</button>
+              <button class="comp-chip" data-jump="p9">Serre autonome — Raspberry Pi</button>
+              <button class="comp-chip" data-jump="p4">Configuration poste Linux — VM</button>
+              <button class="comp-chip" data-jump="p11">Stage XELIANS</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-card c2">
+          <div class="comp-head">
+            <span class="comp-num">Compétence 2/3</span>
+            <h3>Conduire un projet</h3>
+          </div>
+          <p class="comp-tagline">Identifier un besoin, le formaliser en cahier des charges, suivre un cycle de développement et livrer un projet en mesurant ses impacts.</p>
+          <ul class="comp-skills">
+            <li>Recueillir et formaliser les besoins d'un client ou d'un utilisateur</li>
+            <li>Mettre en place des outils de suivi de projet et un cycle de développement</li>
+            <li>Identifier les critères de faisabilité d'un projet informatique</li>
+            <li>Intégrer un projet dans le système d'information d'une organisation</li>
+          </ul>
+          <div class="comp-proofs">
+            <div class="label">Preuves — projets mobilisés</div>
+            <div class="comp-chip-row">
+              <button class="comp-chip" data-jump="p2">Plateforme de gestion de buvette associative</button>
+              <button class="comp-chip" data-jump="p3">Création d'un jeu 2D — architecture logicielle</button>
+              <button class="comp-chip" data-jump="p7">Application Quiz — Java</button>
+              <button class="comp-chip" data-jump="p8">Puissance 4 avec IA — Java</button>
+              <button class="comp-chip" data-jump="p10">Site web JO 2028</button>
+              <button class="comp-chip" data-jump="p11">Stage XELIANS</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-card c3">
+          <div class="comp-head">
+            <span class="comp-num">Compétence 3/3</span>
+            <h3>Collaborer au sein d'une équipe informatique</h3>
+          </div>
+          <p class="comp-tagline">Situer son rôle dans une équipe pluridisciplinaire, mobiliser des compétences interpersonnelles et rendre compte de son activité professionnelle.</p>
+          <ul class="comp-skills">
+            <li>Comprendre la diversité des métiers de l'informatique dans une organisation</li>
+            <li>Travailler au quotidien avec des profils techniques variés</li>
+            <li>Mobiliser les compétences interpersonnelles nécessaires au travail d'équipe</li>
+            <li>Rendre compte de son activité professionnelle</li>
+          </ul>
+          <div class="comp-proofs">
+            <div class="label">Preuves — projets mobilisés</div>
+            <div class="comp-chip-row">
+              <button class="comp-chip" data-jump="p11">Stage XELIANS</button>
+            </div>
+            <p style="margin-top:10px;color:var(--muted);font-size:13px;">Cette compétence s'est surtout construite pendant le stage, au contact quotidien de techniciens, d'administrateurs systèmes et d'ingénieurs réseaux — les autres projets ci-contre ont été menés en solo.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- VIEW 2 : PAR PROJETS -->
+    <div class="lecture-view" data-panel="proj" hidden>
+      <div class="pgrid-but">
+
+        <div class="pcard-but" id="p1"><div class="date">Janvier 2024</div><h4>Conception de base de données relationnelle</h4><div class="pills"><span class="comp-pill c1">C1 · Données</span></div></div>
+
+        <div class="pcard-but" id="p2"><div class="date">Nov. 2025 – Jan. 2026</div><h4>Plateforme de gestion de buvette associative</h4><div class="pills"><span class="comp-pill c1">C1 · Données</span><span class="comp-pill c2">C2 · Projet</span></div></div>
+
+        <div class="pcard-but" id="p3"><div class="date">Mai 2024 – Oct. 2025</div><h4>Création d'un jeu 2D — architecture logicielle</h4><div class="pills"><span class="comp-pill c2">C2 · Projet</span></div></div>
+
+        <div class="pcard-but" id="p4"><div class="date">2025</div><h4>Configuration poste Linux — VM</h4><div class="pills"><span class="comp-pill c1">C1 · Données</span></div></div>
+
+        <div class="pcard-but" id="p5"><div class="date">2025</div><h4>Entrepôt de données & Visualisation</h4><div class="pills"><span class="comp-pill c1">C1 · Données</span></div></div>
+
+        <div class="pcard-but" id="p6"><div class="date">2025</div><h4>Portfolio de compétences Qlik Sense</h4><div class="pills"><span class="comp-pill c1">C1 · Données</span></div></div>
+
+        <div class="pcard-but" id="p7"><div class="date">2024</div><h4>Application Quiz — Java</h4><div class="pills"><span class="comp-pill c2">C2 · Projet</span></div></div>
+
+        <div class="pcard-but" id="p8"><div class="date">2024</div><h4>Puissance 4 avec IA — Java</h4><div class="pills"><span class="comp-pill c2">C2 · Projet</span></div></div>
+
+        <div class="pcard-but" id="p9"><div class="date">2023</div><h4>Serre autonome — Raspberry Pi</h4><div class="pills"><span class="comp-pill c1">C1 · Données</span></div></div>
+
+        <div class="pcard-but" id="p10"><div class="date">2025</div><h4>Site web JO 2028</h4><div class="pills"><span class="comp-pill c2">C2 · Projet</span></div></div>
+
+        <div class="pcard-but" id="p11"><div class="date">Avril – Juin 2026</div><h4>Stage Assistant Informatique — XELIANS</h4><div class="pills"><span class="comp-pill c1">C1 · Données</span><span class="comp-pill c2">C2 · Projet</span><span class="comp-pill c3">C3 · Équipe</span></div></div>
+
+      </div>
+    </div>
+
+    <!-- VIEW 3 : TABLEAU CROISE -->
+    <div class="lecture-view" data-panel="matrix" hidden>
+      <div class="matrix-scroll">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th>Projet</th>
+              <th class="center">C1 — Données</th>
+              <th class="center">C2 — Projet</th>
+              <th class="center">C3 — Équipe</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Conception de base de données relationnelle</td><td class="center"><span class="mark c1">✓</span></td><td class="center"><span class="dash">—</span></td><td class="center"><span class="dash">—</span></td></tr>
+            <tr><td>Plateforme de gestion de buvette associative</td><td class="center"><span class="mark c1">✓</span></td><td class="center"><span class="mark c2">✓</span></td><td class="center"><span class="dash">—</span></td></tr>
+            <tr><td>Création d'un jeu 2D — architecture logicielle</td><td class="center"><span class="dash">—</span></td><td class="center"><span class="mark c2">✓</span></td><td class="center"><span class="dash">—</span></td></tr>
+            <tr><td>Configuration poste Linux — VM</td><td class="center"><span class="mark c1">✓</span></td><td class="center"><span class="dash">—</span></td><td class="center"><span class="dash">—</span></td></tr>
+            <tr><td>Entrepôt de données & Visualisation</td><td class="center"><span class="mark c1">✓</span></td><td class="center"><span class="dash">—</span></td><td class="center"><span class="dash">—</span></td></tr>
+            <tr><td>Portfolio de compétences Qlik Sense</td><td class="center"><span class="mark c1">✓</span></td><td class="center"><span class="dash">—</span></td><td class="center"><span class="dash">—</span></td></tr>
+            <tr><td>Application Quiz — Java</td><td class="center"><span class="dash">—</span></td><td class="center"><span class="mark c2">✓</span></td><td class="center"><span class="dash">—</span></td></tr>
+            <tr><td>Puissance 4 avec IA — Java</td><td class="center"><span class="dash">—</span></td><td class="center"><span class="mark c2">✓</span></td><td class="center"><span class="dash">—</span></td></tr>
+            <tr><td>Serre autonome — Raspberry Pi</td><td class="center"><span class="mark c1">✓</span></td><td class="center"><span class="dash">—</span></td><td class="center"><span class="dash">—</span></td></tr>
+            <tr><td>Site web JO 2028</td><td class="center"><span class="dash">—</span></td><td class="center"><span class="mark c2">✓</span></td><td class="center"><span class="dash">—</span></td></tr>
+            <tr><td>Stage Assistant Informatique — XELIANS</td><td class="center"><span class="mark c1">✓</span></td><td class="center"><span class="mark c2">✓</span></td><td class="center"><span class="mark c3">✓</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="legend-row">
+        <span><i class="c1"></i>C1 — Gérer des données de l'information</span>
+        <span><i class="c2"></i>C2 — Conduire un projet</span>
+        <span><i class="c3"></i>C3 — Collaborer au sein d'une équipe informatique</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="outils">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Boîte à outils</div>
+      <h2>Langages, technologies & méthodes</h2>
     </div>
     <div class="skill-grid">
       <div class="skill-group">
@@ -451,6 +700,41 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
 </section>
 
 <footer>Yanis Ouadah — Le Blanc-Mesnil (93150) · Permis B</footer>
+
+<script>
+(function(){
+  var tabs = document.querySelectorAll('.lecture-tab');
+  var panels = document.querySelectorAll('.lecture-view');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+      var view = tab.getAttribute('data-view');
+      panels.forEach(function(p){
+        p.hidden = p.getAttribute('data-panel') !== view;
+      });
+    });
+  });
+
+  document.querySelectorAll('.comp-chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var targetId = chip.getAttribute('data-jump');
+      tabs.forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+      var projTab = document.querySelector('.lecture-tab[data-view="proj"]');
+      projTab.classList.add('active');
+      projTab.setAttribute('aria-selected','true');
+      panels.forEach(function(p){ p.hidden = p.getAttribute('data-panel') !== 'proj'; });
+      var target = document.getElementById(targetId);
+      if(target){
+        target.scrollIntoView({behavior:'smooth', block:'center'});
+        target.classList.add('flash');
+        setTimeout(function(){ target.classList.remove('flash'); }, 1600);
+      }
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
