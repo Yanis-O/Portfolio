@@ -5,255 +5,293 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yanis Ouadah — Portfolio · Recherche d'alternance 2027</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#F5F3EE;
-  --paper-dim:#EDEAE2;
-  --ink:#14181F;
-  --ink-soft:#4B5160;
-  --muted:#8A8F9B;
-  --line:#DAD6CB;
-  --accent:#2955C4;
-  --accent-soft:#E7ECFA;
-  --pulse:#E2793D;
-  --pulse-soft:#FBEADD;
-  --c3:#1F8A70;
-  --c3-soft:#E1F1EC;
-  --card:#FFFFFF;
-  --radius:10px;
+  --bg:#0A1422;
+  --bg-alt:#0E1B2D;
+  --card:#101F34;
+  --line:#243B57;
+  --line-soft:#1A2C44;
+  --ink:#EAF2FB;
+  --ink-soft:#9FB4CE;
+  --muted:#5E7897;
+  --accent:#5FD8E4;
+  --accent-soft:rgba(95,216,228,.12);
+  --amber:#F2A65A;
+  --amber-soft:rgba(242,166,90,.12);
+  --violet:#B592E8;
+  --violet-soft:rgba(181,146,232,.12);
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
   margin:0;
-  background:var(--paper);
+  background:
+    linear-gradient(var(--bg) 0%, var(--bg) 100%);
+  background-color:var(--bg);
+  background-image:
+    linear-gradient(rgba(95,216,228,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(95,216,228,.045) 1px, transparent 1px);
+  background-size:34px 34px;
   color:var(--ink);
-  font-family:"Inter",-apple-system,Segoe UI,Helvetica,Arial,sans-serif;
+  font-family:"IBM Plex Sans","Inter",-apple-system,Segoe UI,Helvetica,Arial,sans-serif;
   font-size:16px;
-  line-height:1.6;
+  line-height:1.62;
   -webkit-font-smoothing:antialiased;
 }
 h1,h2,h3,.disp{
-  font-family:"Space Grotesk","Inter",sans-serif;
+  font-family:"Space Grotesk","IBM Plex Sans",sans-serif;
   color:var(--ink);
   letter-spacing:-0.01em;
   margin:0;
 }
+.mono{font-family:"IBM Plex Mono",monospace;}
 a{color:var(--accent);}
-.wrap{max-width:960px;margin:0 auto;padding:0 28px;}
-.wrap-narrow{max-width:760px;margin:0 auto;padding:0 28px;}
+.wrap{max-width:980px;margin:0 auto;padding:0 28px;}
+.wrap-narrow{max-width:780px;margin:0 auto;padding:0 28px;}
 
 /* NAV */
 nav{
   position:sticky; top:0; z-index:20;
-  background:rgba(245,243,238,.88);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
+  background:rgba(10,20,34,.86);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line-soft);
 }
 nav .inner{
-  max-width:960px;margin:0 auto;padding:16px 28px;
+  max-width:980px;margin:0 auto;padding:16px 28px;
   display:flex; align-items:center; justify-content:space-between;
 }
-nav .brand{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:17px;}
+nav .brand{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:16.5px;}
 nav .brand span{color:var(--accent);}
-nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;}
-nav a{color:var(--ink-soft);text-decoration:none;font-size:14px;}
-nav a:hover{color:var(--accent);}
+nav ul{list-style:none;display:flex;gap:4px;margin:0;padding:0;}
+nav a{
+  color:var(--ink-soft);text-decoration:none;font-size:12.8px;
+  font-family:"IBM Plex Mono",monospace;
+  padding:7px 11px;border:1px solid transparent;
+}
+nav a:hover{color:var(--accent);border-color:var(--line);}
+nav a.current{color:var(--accent);border-color:var(--accent-soft);background:var(--accent-soft);}
 
 /* HERO */
-.hero{padding:78px 0 54px 0;position:relative;overflow:hidden;}
+.hero{padding:74px 0 44px 0;position:relative;overflow:hidden;}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;}
 .badge{
-  display:inline-flex;align-items:center;gap:7px;
-  background:var(--accent-soft);color:var(--accent);
-  border-radius:100px;padding:6px 13px 6px 10px;
-  font-size:13px;font-weight:600;margin-bottom:22px;
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--line);color:var(--accent);
+  padding:6px 13px 6px 10px;
+  font-family:"IBM Plex Mono",monospace;font-size:12.5px;margin-bottom:24px;
 }
-.badge .dot{width:7px;height:7px;border-radius:50%;background:var(--pulse);animation:pulse 2.2s ease-in-out infinite;}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.45;transform:scale(1.5);}}
-.hero h1{font-size:41px;line-height:1.16;font-weight:600;max-width:640px;}
+.badge .dot{width:6px;height:6px;background:var(--amber);animation:pulse 2.2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(1.6);}}
+.hero h1{font-size:39px;line-height:1.2;font-weight:600;max-width:620px;}
 .hero h1 em{font-style:normal;color:var(--accent);}
-.hero p.lead{margin-top:18px;font-size:16.5px;color:var(--ink-soft);max-width:540px;}
+.hero p.lead{margin-top:18px;font-size:16px;color:var(--ink-soft);max-width:520px;}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
 .btn{
   display:inline-flex;align-items:center;gap:8px;
-  padding:11px 18px;border-radius:8px;font-size:14.5px;font-weight:600;
+  padding:11px 18px;font-size:13.5px;font-weight:600;
+  font-family:"IBM Plex Mono",monospace;
   text-decoration:none;border:1px solid transparent;
   cursor:pointer;
 }
-.btn-primary{background:var(--ink);color:var(--paper);}
-.btn-primary:hover{background:var(--accent);}
+.btn-primary{background:var(--accent);color:#04141C;}
+.btn-primary:hover{background:#84E4EC;}
 .btn-ghost{border-color:var(--line);color:var(--ink);background:transparent;}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
 
-.hero-graphic{position:relative;height:290px;}
+.hero-graphic{position:relative;height:280px;}
 .hero-graphic svg{width:100%;height:100%;}
 
 .meta-strip{
-  border-top:1px solid var(--line);
-  padding:20px 0;display:flex;flex-wrap:wrap;gap:28px;
-  color:var(--muted);font-size:13.5px;
+  border-top:1px solid var(--line-soft);
+  padding:18px 0;display:flex;flex-wrap:wrap;gap:0;
+  color:var(--muted);font-size:12.5px;font-family:"IBM Plex Mono",monospace;
 }
-.meta-strip strong{color:var(--ink-soft);font-weight:600;}
+.meta-strip div{padding:0 24px 0 0;margin-right:24px;border-right:1px solid var(--line-soft);}
+.meta-strip div:last-child{border-right:none;}
+.meta-strip strong{color:var(--ink-soft);font-weight:500;display:block;font-size:10.5px;text-transform:lowercase;margin-bottom:3px;letter-spacing:.02em;}
 
-section{padding:56px 0;}
-section.alt{background:var(--paper-dim);}
-.section-head{margin-bottom:32px;max-width:600px;}
-.section-head .kicker{color:var(--accent);font-weight:600;font-size:13.5px;margin-bottom:6px;}
-.section-head h2{font-size:27px;font-weight:600;}
-.section-head p{color:var(--ink-soft);margin-top:8px;font-size:15px;}
+section{padding:52px 0;}
+section.alt{background:var(--bg-alt);}
+.section-head{margin-bottom:32px;max-width:620px;}
+.section-head h2{font-size:25px;font-weight:600;}
+.section-head p{color:var(--ink-soft);margin-top:9px;font-size:14.5px;}
+.section-tag{
+  display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11.5px;
+  color:var(--muted);border:1px solid var(--line);padding:2px 8px;margin-bottom:12px;
+}
 
 /* ABOUT */
 .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:44px;}
-.about-grid p{color:var(--ink-soft);font-size:15.5px;}
-.stat-list{display:flex;flex-direction:column;gap:16px;}
-.stat{border-left:2px solid var(--accent);padding-left:14px;}
-.stat b{display:block;font-family:"Space Grotesk",sans-serif;font-size:19px;}
-.stat span{color:var(--muted);font-size:13.5px;}
+.about-grid p{color:var(--ink-soft);font-size:15px;}
+.stat-list{display:flex;flex-direction:column;gap:0;}
+.stat{border-top:1px solid var(--line-soft);padding:14px 0;}
+.stat:first-child{border-top:none;}
+.stat b{display:block;font-family:"Space Grotesk",sans-serif;font-size:20px;color:var(--accent);}
+.stat span{color:var(--muted);font-size:13px;}
 
 /* TIMELINE */
-.timeline{position:relative;padding-left:26px;}
-.timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1.5px;background:var(--line);}
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:"";position:absolute;left:5px;top:4px;bottom:4px;width:1px;background:repeating-linear-gradient(var(--line) 0 4px, transparent 4px 8px);}
 .tl-item{position:relative;padding-bottom:30px;}
 .tl-item:last-child{padding-bottom:0;}
 .tl-item::before{
-  content:"";position:absolute;left:-26px;top:4px;width:11px;height:11px;
-  border-radius:50%;background:var(--paper);border:2px solid var(--accent);
+  content:"";position:absolute;left:-28px;top:4px;width:9px;height:9px;
+  background:var(--bg-alt);border:1.5px solid var(--accent);
 }
-.tl-item .date{color:var(--muted);font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;}
-.tl-item h3{font-size:17px;margin-top:3px;font-weight:600;}
+.tl-item .date{color:var(--muted);font-family:"IBM Plex Mono",monospace;font-size:12px;}
+.tl-item h3{font-size:16.5px;margin-top:4px;font-weight:600;}
 .tl-item h3 .org{color:var(--accent);font-weight:600;}
-.tl-item ul{margin:8px 0 0 0;padding-left:18px;color:var(--ink-soft);font-size:14.5px;}
+.tl-item ul{margin:9px 0 0 0;padding-left:18px;color:var(--ink-soft);font-size:14px;}
 .tl-item ul li{margin-bottom:3px;}
 
 /* PROJECTS */
-.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
 .proj-card{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-  padding:20px 22px;
+  position:relative;
+  background:var(--card);border:1px solid var(--line);
+  transition:border-color .15s ease;
 }
-.proj-card .date{color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;}
-.proj-card h3{font-size:15.5px;margin-top:5px;font-weight:600;}
-.proj-card p{color:var(--ink-soft);font-size:13.8px;margin-top:7px;}
-.proj-card .tags{margin-top:11px;display:flex;flex-wrap:wrap;gap:6px;}
-.tag{font-size:11.5px;color:var(--accent);background:var(--accent-soft);padding:3px 8px;border-radius:100px;}
+.proj-card:hover{border-color:var(--accent);}
+.proj-card::before, .proj-card::after{
+  content:"";position:absolute;width:11px;height:11px;pointer-events:none;
+}
+.proj-card::before{top:-1px;left:-1px;border-top:2px solid var(--accent);border-left:2px solid var(--accent);}
+.proj-card::after{bottom:-1px;right:-1px;border-bottom:2px solid var(--accent);border-right:2px solid var(--accent);}
+.proj-visual{
+  height:112px;display:flex;align-items:center;justify-content:center;
+  border-bottom:1px solid var(--line);
+  background-image:
+    linear-gradient(rgba(95,216,228,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(95,216,228,.07) 1px, transparent 1px);
+  background-size:14px 14px;
+  color:var(--accent);
+}
+.proj-visual svg{width:52px;height:52px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.proj-body{padding:18px 20px;}
+.proj-card .date{color:var(--muted);font-family:"IBM Plex Mono",monospace;font-size:11.5px;}
+.proj-card h3{font-size:15px;margin-top:6px;font-weight:600;}
+.proj-card p{color:var(--ink-soft);font-size:13.4px;margin-top:7px;}
+.proj-card .tags{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;}
+.tag{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--accent);border:1px solid var(--line);padding:2px 8px;}
 
-/* ---- BUT: double lecture (compétences / projets) ---- */
+/* ---- BUT: double lecture ---- */
 .lecture-tabs{
-  display:inline-flex;gap:4px;background:var(--card);
-  border:1px solid var(--line);border-radius:100px;padding:4px;
+  display:inline-flex;gap:2px;border:1px solid var(--line);
   margin-bottom:30px;
 }
 .lecture-tab{
   border:none;background:transparent;cursor:pointer;
-  font-family:"Inter",sans-serif;font-size:13.5px;font-weight:600;
-  color:var(--ink-soft);padding:9px 18px;border-radius:100px;
+  font-family:"IBM Plex Mono",monospace;font-size:12.8px;font-weight:500;
+  color:var(--ink-soft);padding:10px 18px;
+  border-right:1px solid var(--line);
   transition:background .15s ease, color .15s ease;
 }
+.lecture-tab:last-child{border-right:none;}
 .lecture-tab:hover{color:var(--ink);}
-.lecture-tab.active{background:var(--ink);color:var(--paper);}
+.lecture-tab.active{background:var(--accent);color:#04141C;}
 
 .comp-pill{
   display:inline-flex;align-items:center;gap:5px;
-  font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:100px;
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11px;font-weight:500;padding:3px 9px;border:1px solid;
 }
-.comp-pill.c1{color:var(--accent);background:var(--accent-soft);}
-.comp-pill.c2{color:#B0561E;background:var(--pulse-soft);}
-.comp-pill.c3{color:var(--c3);background:var(--c3-soft);}
+.comp-pill.c1{color:var(--accent);border-color:var(--accent-soft);background:var(--accent-soft);}
+.comp-pill.c2{color:var(--amber);border-color:var(--amber-soft);background:var(--amber-soft);}
+.comp-pill.c3{color:var(--violet);border-color:var(--violet-soft);background:var(--violet-soft);}
 
-.comp-grid{display:flex;flex-direction:column;gap:18px;}
+.comp-grid{display:flex;flex-direction:column;gap:16px;}
 .comp-card{
-  background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:26px 28px;border-left:4px solid var(--accent);
+  background:var(--card);border:1px solid var(--line);
+  padding:26px 28px;border-left:2px solid var(--accent);
 }
-.comp-card.c2{border-left-color:var(--pulse);}
-.comp-card.c3{border-left-color:var(--c3);}
-.comp-card .comp-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
-.comp-card .comp-num{
-  font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13px;
-  color:var(--muted);
-}
-.comp-card h3{font-size:19px;font-weight:600;}
-.comp-card .comp-tagline{color:var(--ink-soft);font-size:14.5px;margin-top:8px;max-width:600px;}
-.comp-card .comp-skills{margin:16px 0 0 0;padding-left:18px;color:var(--ink-soft);font-size:14px;}
+.comp-card.c2{border-left-color:var(--amber);}
+.comp-card.c3{border-left-color:var(--violet);}
+.comp-card .comp-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
+.comp-card .comp-num{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);}
+.comp-card h3{font-size:18.5px;font-weight:600;}
+.comp-card .comp-tagline{color:var(--ink-soft);font-size:14px;margin-top:8px;max-width:620px;}
+.comp-card .comp-skills{margin:16px 0 0 0;padding-left:18px;color:var(--ink-soft);font-size:13.6px;}
 .comp-card .comp-skills li{margin-bottom:4px;}
-.comp-card .comp-proofs{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);}
-.comp-card .comp-proofs .label{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;margin-bottom:9px;}
+.comp-card .comp-proofs{margin-top:18px;padding-top:16px;border-top:1px solid var(--line-soft);}
+.comp-card .comp-proofs .label{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted);margin-bottom:9px;}
 .comp-chip-row{display:flex;flex-wrap:wrap;gap:8px;}
 .comp-chip{
-  font-size:13px;color:var(--ink);background:var(--paper-dim);
-  border:1px solid var(--line);padding:6px 12px;border-radius:8px;
+  font-family:"IBM Plex Mono",monospace;
+  font-size:12.5px;color:var(--ink-soft);background:var(--bg-alt);
+  border:1px solid var(--line);padding:6px 12px;
   cursor:pointer;text-align:left;
 }
 .comp-chip:hover{border-color:var(--accent);color:var(--accent);}
 
-.pgrid-but{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.pgrid-but{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .pcard-but{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-  padding:19px 21px;scroll-margin-top:100px;
+  background:var(--card);border:1px solid var(--line);
+  padding:17px 19px;scroll-margin-top:100px;
 }
 .pcard-but.flash{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);}
-.pcard-but .date{color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;}
-.pcard-but h4{font-size:15px;margin-top:5px;font-weight:600;}
+.pcard-but .date{color:var(--muted);font-family:"IBM Plex Mono",monospace;font-size:11.5px;}
+.pcard-but h4{font-size:14.5px;margin-top:6px;font-weight:600;}
 .pcard-but .pills{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;}
 
-.matrix-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);}
-table.matrix{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px;}
-table.matrix th, table.matrix td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);}
+.matrix-scroll{overflow-x:auto;border:1px solid var(--line);background:var(--card);}
+table.matrix{border-collapse:collapse;width:100%;min-width:560px;font-size:13px;}
+table.matrix th, table.matrix td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line-soft);}
 table.matrix thead th{
-  font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);
-  font-weight:600;white-space:nowrap;
+  font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted);
+  font-weight:500;white-space:nowrap;
 }
 table.matrix thead th.center, table.matrix td.center{text-align:center;}
 table.matrix tbody tr:last-child td{border-bottom:none;}
-table.matrix tbody tr:hover{background:var(--paper-dim);}
-table.matrix .mark{color:var(--card);width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;}
-table.matrix .mark.c1{background:var(--accent);}
-table.matrix .mark.c2{background:var(--pulse);}
-table.matrix .mark.c3{background:var(--c3);}
+table.matrix tbody tr:hover{background:var(--bg-alt);}
+table.matrix .mark{width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:1px solid;font-family:"IBM Plex Mono",monospace;}
+table.matrix .mark.c1{color:var(--accent);border-color:var(--accent);}
+table.matrix .mark.c2{color:var(--amber);border-color:var(--amber);}
+table.matrix .mark.c3{color:var(--violet);border-color:var(--violet);}
 table.matrix .dash{color:var(--line);}
 
-.legend-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px;color:var(--muted);font-size:13px;}
+.legend-row{display:flex;flex-wrap:wrap;gap:18px;margin-top:16px;color:var(--muted);font-size:12.5px;font-family:"IBM Plex Mono",monospace;}
 .legend-row span{display:inline-flex;align-items:center;gap:7px;}
-.legend-row i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+.legend-row i{width:8px;height:8px;display:inline-block;}
 .legend-row i.c1{background:var(--accent);}
-.legend-row i.c2{background:var(--pulse);}
-.legend-row i.c3{background:var(--c3);}
+.legend-row i.c2{background:var(--amber);}
+.legend-row i.c3{background:var(--violet);}
 
 /* SKILLS */
-.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px 40px;}
-.skill-group .label{color:var(--accent);font-weight:600;font-size:13.5px;margin-bottom:8px;}
-.skill-group .items{color:var(--ink-soft);font-size:14.5px;line-height:1.8;}
-.lang-grid{margin-top:36px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-.lang-item{border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--card);}
-.lang-item b{display:block;font-size:14.5px;}
-.lang-item span{color:var(--muted);font-size:12.5px;}
-.lang-bar{margin-top:8px;height:4px;border-radius:2px;background:var(--line);overflow:hidden;}
+.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 40px;}
+.skill-group .label{font-family:"IBM Plex Mono",monospace;color:var(--accent);font-weight:500;font-size:12.5px;margin-bottom:9px;}
+.skill-group .items{color:var(--ink-soft);font-size:14px;line-height:1.9;}
+.lang-grid{margin-top:36px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.lang-item{border:1px solid var(--line);padding:14px;background:var(--card);}
+.lang-item b{display:block;font-size:14px;}
+.lang-item span{color:var(--muted);font-size:11.5px;font-family:"IBM Plex Mono",monospace;}
+.lang-bar{margin-top:9px;height:3px;background:var(--line);overflow:hidden;}
 .lang-bar i{display:block;height:100%;background:var(--accent);}
 
 /* CONTACT */
 .contact-card{
-  background:var(--ink);color:var(--paper);
-  border-radius:16px;padding:44px 40px;
+  background:var(--card);color:var(--ink);
+  border:1px solid var(--line);border-top:2px solid var(--accent);
+  padding:44px 40px;
   display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center;
 }
-.contact-card h2{color:var(--paper);font-size:26px;font-weight:600;}
-.contact-card p{color:#B9BEC9;margin-top:10px;font-size:14.5px;max-width:400px;}
-.contact-links{display:flex;flex-direction:column;gap:12px;}
+.contact-card h2{color:var(--ink);font-size:25px;font-weight:600;}
+.contact-card p{color:var(--ink-soft);margin-top:10px;font-size:14px;max-width:400px;}
+.contact-links{display:flex;flex-direction:column;gap:0;}
 .contact-links a{
-  color:var(--paper);text-decoration:none;font-size:14.5px;
-  display:flex;justify-content:space-between;border-bottom:1px solid #2B303B;padding-bottom:10px;
+  color:var(--ink);text-decoration:none;font-size:14px;font-family:"IBM Plex Mono",monospace;
+  display:flex;justify-content:space-between;border-bottom:1px solid var(--line-soft);padding:11px 0;
 }
-.contact-links a span{color:#8A8F9B;}
-.contact-links a:hover{color:var(--pulse);}
+.contact-links a span{color:var(--muted);}
+.contact-links a:hover{color:var(--accent);}
 
-footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:center;}
+footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center;font-family:"IBM Plex Mono",monospace;}
 
 @media(max-width:760px){
   .hero-grid{grid-template-columns:1fr;}
   .hero-graphic{height:180px;order:-1;}
-  .hero h1{font-size:31px;}
+  .hero h1{font-size:29px;}
   .about-grid{grid-template-columns:1fr;}
   .proj-grid{grid-template-columns:1fr;}
   .pgrid-but{grid-template-columns:1fr;}
@@ -262,7 +300,9 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
   .contact-card{grid-template-columns:1fr;padding:32px 24px;}
   nav ul{display:none;}
   .lecture-tabs{width:100%;}
-  .lecture-tab{flex:1;text-align:center;padding:9px 8px;}
+  .lecture-tab{flex:1;text-align:center;padding:10px 6px;}
+  .meta-strip{flex-direction:column;gap:12px;}
+  .meta-strip div{border-right:none;margin-right:0;}
 }
 </style>
 </head>
@@ -272,13 +312,13 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
   <div class="inner">
     <div class="brand">Yanis <span>Ouadah</span></div>
     <ul>
-      <li><a href="#accueil" style="color:var(--accent)">Accueil</a></li>
-      <li><a href="#apropos">À propos</a></li>
-      <li><a href="#parcours">Parcours</a></li>
-      <li><a href="#projets">Projets</a></li>
-      <li><a href="#competences-but">Compétences BUT</a></li>
-      <li><a href="#outils">Outils</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#accueil" class="current">accueil</a></li>
+      <li><a href="#apropos">a-propos</a></li>
+      <li><a href="#parcours">parcours</a></li>
+      <li><a href="#projets">projets</a></li>
+      <li><a href="#competences-but">competences-but</a></li>
+      <li><a href="#outils">outils</a></li>
+      <li><a href="#contact">contact</a></li>
     </ul>
   </div>
 </nav>
@@ -287,7 +327,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="badge"><span class="dot"></span>Disponible pour une alternance — rentrée 2027</div>
+        <div class="badge"><span class="dot"></span>disponible — alternance, rentrée 2027</div>
         <h1>Je construis des systèmes qui font <em>circuler la donnée</em>.</h1>
         <p class="lead">Étudiant en 3ᵉ année de BUT Informatique à l'IUT de Montreuil, je recherche une alternance pour intégrer un Master à la rentrée 2027 — entre optimisation des flux réseaux et exploitation de données.</p>
         <div class="cta-row">
@@ -298,7 +338,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
       </div>
       <div class="hero-graphic">
 <svg viewBox="0 0 360 290" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g stroke="#DAD6CB" stroke-width="1.4">
+  <g stroke="#243B57" stroke-width="1.2">
     <line x1="40" y1="60" x2="150" y2="40"/>
     <line x1="150" y1="40" x2="270" y2="70"/>
     <line x1="150" y1="40" x2="120" y2="150"/>
@@ -309,7 +349,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
     <line x1="220" y1="190" x2="190" y2="250"/>
     <line x1="60" y1="210" x2="90" y2="260"/>
   </g>
-  <g stroke="#2955C4" stroke-width="2">
+  <g stroke="#5FD8E4" stroke-width="1.8">
     <line x1="150" y1="40" x2="270" y2="70" stroke-dasharray="6 7">
       <animate attributeName="stroke-dashoffset" values="26;0" dur="1.6s" repeatCount="indefinite"/>
     </line>
@@ -317,7 +357,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
       <animate attributeName="stroke-dashoffset" values="0;26" dur="2.1s" repeatCount="indefinite"/>
     </line>
   </g>
-  <g fill="#14181F">
+  <g fill="#0A1422" stroke="#9FB4CE" stroke-width="1.2">
     <circle cx="40" cy="60" r="4.5"/>
     <circle cx="270" cy="70" r="4.5"/>
     <circle cx="300" cy="170" r="4.5"/>
@@ -325,24 +365,28 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
     <circle cx="90" cy="260" r="4.5"/>
     <circle cx="190" cy="250" r="4.5"/>
   </g>
-  <g fill="#2955C4">
-    <circle cx="150" cy="40" r="6.5"/>
-    <circle cx="120" cy="150" r="6.5"/>
-    <circle cx="220" cy="190" r="6.5"/>
+  <g fill="#5FD8E4">
+    <circle cx="150" cy="40" r="5.5"/>
+    <circle cx="120" cy="150" r="5.5"/>
+    <circle cx="220" cy="190" r="5.5"/>
   </g>
 </svg>
 </div>
     </div>
   </div>
   <div class="wrap">
-    <div class="meta-strip"><div><strong>Recherche</strong> — alternance, rythme à définir</div><div><strong>Rentrée</strong> — 2027</div><div><strong>Localisation</strong> — Le Blanc-Mesnil (93) — mobile en Île-de-France</div><div><strong>Permis</strong> — B</div></div>
+    <div class="meta-strip">
+      <div><strong>recherche</strong>alternance, rythme à définir</div>
+      <div><strong>rentrée</strong>2027</div>
+      <div><strong>localisation</strong>Le Blanc-Mesnil (93) — Île-de-France</div>
+      <div><strong>permis</strong>B</div>
+    </div>
   </div>
 </header>
 
 <section id="apropos">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker">À propos</div>
       <h2>Étudiant en BUT Informatique, entre réseaux et données</h2>
     </div>
     <div class="about-grid">
@@ -368,7 +412,6 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
 <section class="alt" id="parcours">
   <div class="wrap-narrow">
     <div class="section-head">
-      <div class="kicker">Parcours</div>
       <h2>Formation & expériences professionnelles</h2>
     </div>
     <div class="timeline">
@@ -411,80 +454,129 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
 <section id="projets">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker">Projets</div>
       <h2>Projets techniques</h2>
       <p>Une sélection de projets menés en autonomie ou en groupe, du schéma de données au déploiement.</p>
     </div>
     <div class="proj-grid">
 
       <div class="proj-card">
-        <div class="date">Janvier 2024</div>
-        <h3>Conception de base de données relationnelle</h3>
-        <p>Schémas MCD, MLD et MPD complets selon un cahier des charges ; requêtes SQL complexes, indexation et transactions.</p>
-        <div class="tags"><span class="tag">SQL</span><span class="tag">Merise</span><span class="tag">PostgreSQL</span></div>
+        <div class="proj-visual">
+          <svg viewBox="0 0 64 64"><ellipse cx="32" cy="14" rx="18" ry="7"/><path d="M14 14v20c0 3.9 8.1 7 18 7s18-3.1 18-7V14"/><path d="M14 27c0 3.9 8.1 7 18 7s18-3.1 18-7"/></svg>
+        </div>
+        <div class="proj-body">
+          <div class="date">Janvier 2024</div>
+          <h3>Conception de base de données relationnelle</h3>
+          <p>Schémas MCD, MLD et MPD complets selon un cahier des charges ; requêtes SQL complexes, indexation et transactions.</p>
+          <div class="tags"><span class="tag">SQL</span><span class="tag">Merise</span><span class="tag">PostgreSQL</span></div>
+        </div>
       </div>
 
       <div class="proj-card">
-        <div class="date">Nov. 2025 – Jan. 2026</div>
-        <h3>Plateforme de gestion de buvette associative</h3>
-        <p>Application web sur base de données relationnelle avec gestion fine des droits (Client, Admin, Barman).</p>
-        <div class="tags"><span class="tag">PHP</span><span class="tag">JavaScript</span><span class="tag">SQL</span></div>
+        <div class="proj-visual">
+          <svg viewBox="0 0 64 64"><path d="M20 14h20l-3 26a4 4 0 0 1-4 3.6h-6a4 4 0 0 1-4-3.6L20 14z"/><path d="M40 18h5a6 6 0 0 1 0 12h-4"/><circle cx="16" cy="50" r="3"/><circle cx="32" cy="53" r="3"/><circle cx="48" cy="50" r="3"/><path d="M16 47v-3M32 50v-3M48 47v-3"/></svg>
+        </div>
+        <div class="proj-body">
+          <div class="date">Nov. 2025 – Jan. 2026</div>
+          <h3>Plateforme de gestion de buvette associative</h3>
+          <p>Application web sur base de données relationnelle avec gestion fine des droits (Client, Admin, Barman).</p>
+          <div class="tags"><span class="tag">PHP</span><span class="tag">JavaScript</span><span class="tag">SQL</span></div>
+        </div>
       </div>
 
       <div class="proj-card">
-        <div class="date">Mai 2024 – Oct. 2025</div>
-        <h3>Création d'un jeu 2D — architecture logicielle</h3>
-        <p>Pattern MVC en Java pour isoler la logique métier des données ; tests unitaires JUnit, gestion de version sous Git.</p>
-        <div class="tags"><span class="tag">Java</span><span class="tag">MVC</span><span class="tag">JUnit</span><span class="tag">Git</span></div>
+        <div class="proj-visual">
+          <svg viewBox="0 0 64 64"><rect x="14" y="9" width="36" height="12"/><rect x="14" y="26" width="36" height="12"/><rect x="14" y="43" width="36" height="12"/><path d="M32 21v5M32 38v5"/></svg>
+        </div>
+        <div class="proj-body">
+          <div class="date">Mai 2024 – Oct. 2025</div>
+          <h3>Création d'un jeu 2D — architecture logicielle</h3>
+          <p>Pattern MVC en Java pour isoler la logique métier des données ; tests unitaires JUnit, gestion de version sous Git.</p>
+          <div class="tags"><span class="tag">Java</span><span class="tag">MVC</span><span class="tag">JUnit</span><span class="tag">Git</span></div>
+        </div>
       </div>
 
       <div class="proj-card">
-        <div class="date">2025</div>
-        <h3>Configuration poste Linux — Machine virtuelle</h3>
-        <p>Installation et configuration d'un poste Linux en VM : réseau, utilisateurs, services et sécurité de base.</p>
-        <div class="tags"><span class="tag">Linux</span><span class="tag">VirtualBox</span><span class="tag">Réseaux</span></div>
+        <div class="proj-visual">
+          <svg viewBox="0 0 64 64"><rect x="8" y="12" width="48" height="34"/><path d="M16 22l8 6-8 6M28 34h10"/><circle cx="48" cy="50" r="6.5"/><path d="M48 41.5v3M48 55.5v3M39.5 50h3M53.5 50h3M42.3 44.3l2.1 2.1M55.6 57.6l-2.1-2.1M42.3 55.7l2.1-2.1M55.6 42.4l-2.1 2.1"/></svg>
+        </div>
+        <div class="proj-body">
+          <div class="date">2025</div>
+          <h3>Configuration poste Linux — Machine virtuelle</h3>
+          <p>Installation et configuration d'un poste Linux en VM : réseau, utilisateurs, services et sécurité de base.</p>
+          <div class="tags"><span class="tag">Linux</span><span class="tag">VirtualBox</span><span class="tag">Réseaux</span></div>
+        </div>
       </div>
 
       <div class="proj-card">
-        <div class="date">2025</div>
-        <h3>Entrepôt de données & Visualisation</h3>
-        <p>Collecte via API OpenAQ (Python) et fichiers CSV WorldCities / World Bank ; modélisation en star schéma PostgreSQL, dashboards Qlik Sense.</p>
-        <div class="tags"><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">Qlik Sense</span></div>
+        <div class="proj-visual">
+          <svg viewBox="0 0 64 64"><path d="M8 26 32 10l24 16v28H8V26z"/><rect x="18" y="34" width="6" height="14"/><rect x="29" y="28" width="6" height="20"/><rect x="40" y="20" width="6" height="28"/></svg>
+        </div>
+        <div class="proj-body">
+          <div class="date">2025</div>
+          <h3>Entrepôt de données & Visualisation</h3>
+          <p>Collecte via API OpenAQ (Python) et fichiers CSV WorldCities / World Bank ; modélisation en star schéma PostgreSQL, dashboards Qlik Sense.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">Qlik Sense</span></div>
+        </div>
       </div>
 
       <div class="proj-card">
-        <div class="date">2025</div>
-        <h3>Portfolio de compétences Qlik Sense</h3>
-        <p>Suivi de l'évolution des compétences S1 → S4 à partir des relevés de notes, visualisations interactives.</p>
-        <div class="tags"><span class="tag">Qlik Sense</span><span class="tag">CSV</span></div>
+        <div class="proj-visual">
+          <svg viewBox="0 0 64 64"><path d="M32 8 54 22 46 48 18 48 10 22Z"/><path d="M32 32 32 8M32 32 54 22M32 32 46 48M32 32 18 48M32 32 10 22"/><circle cx="32" cy="16" r="2" fill="currentColor"/><circle cx="44" cy="26" r="2" fill="currentColor"/><circle cx="38" cy="42" r="2" fill="currentColor"/></svg>
+        </div>
+        <div class="proj-body">
+          <div class="date">2025</div>
+          <h3>Portfolio de compétences Qlik Sense</h3>
+          <p>Suivi de l'évolution des compétences S1 → S4 à partir des relevés de notes, visualisations interactives.</p>
+          <div class="tags"><span class="tag">Qlik Sense</span><span class="tag">CSV</span></div>
+        </div>
       </div>
 
       <div class="proj-card">
-        <div class="date">2024</div>
-        <h3>Application Quiz — Java</h3>
-        <p>Architecture DTO avec interfaces IServicesQuestionnaire / IServicesJoueur ; tests JUnit 5 avec mocks manuels.</p>
-        <div class="tags"><span class="tag">Java</span><span class="tag">DTO</span><span class="tag">JUnit 5</span></div>
+        <div class="proj-visual">
+          <svg viewBox="0 0 64 64"><circle cx="24" cy="24" r="14"/><path d="M19 20a5 5 0 1 1 7 4.6c-1.8.9-2 2-2 3.4"/><circle cx="24" cy="33" r="0.6" fill="currentColor"/><path d="M44 14h12M44 22h12M44 30h8"/></svg>
+        </div>
+        <div class="proj-body">
+          <div class="date">2024</div>
+          <h3>Application Quiz — Java</h3>
+          <p>Architecture DTO avec interfaces IServicesQuestionnaire / IServicesJoueur ; tests JUnit 5 avec mocks manuels.</p>
+          <div class="tags"><span class="tag">Java</span><span class="tag">DTO</span><span class="tag">JUnit 5</span></div>
+        </div>
       </div>
 
       <div class="proj-card">
-        <div class="date">2024</div>
-        <h3>Puissance 4 avec IA — Java</h3>
-        <p>IA à plusieurs niveaux (algorithme minimax, élagage alpha-bêta), modes de difficulté progressifs.</p>
-        <div class="tags"><span class="tag">Java</span><span class="tag">IA</span><span class="tag">Minimax</span></div>
+        <div class="proj-visual">
+          <svg viewBox="0 0 64 64"><rect x="8" y="8" width="48" height="48"/><circle cx="18" cy="18" r="3.4"/><circle cx="28" cy="18" r="3.4"/><circle cx="38" cy="18" r="3.4"/><circle cx="48" cy="18" r="3.4"/><circle cx="18" cy="46" r="3.4" fill="currentColor"/><circle cx="28" cy="38" r="3.4" fill="currentColor"/><circle cx="38" cy="30" r="3.4" fill="currentColor"/><circle cx="48" cy="46" r="3.4"/></svg>
+        </div>
+        <div class="proj-body">
+          <div class="date">2024</div>
+          <h3>Puissance 4 avec IA — Java</h3>
+          <p>IA à plusieurs niveaux (algorithme minimax, élagage alpha-bêta), modes de difficulté progressifs.</p>
+          <div class="tags"><span class="tag">Java</span><span class="tag">IA</span><span class="tag">Minimax</span></div>
+        </div>
       </div>
 
       <div class="proj-card">
-        <div class="date">2023</div>
-        <h3>Serre autonome — Raspberry Pi</h3>
-        <p>Serre automatisée : irrigation, ventilation et luminosité pilotées par capteurs, régulation en temps réel.</p>
-        <div class="tags"><span class="tag">Python</span><span class="tag">Raspberry Pi</span><span class="tag">IoT</span></div>
+        <div class="proj-visual">
+          <svg viewBox="0 0 64 64"><path d="M32 54V30"/><path d="M32 34c-10 0-14-8-14-14 8 0 14 4 14 14zM32 30c10 0 14-8 14-14-8 0-14 4-14 14z"/><rect x="20" y="54" width="24" height="5"/><circle cx="46" cy="14" r="4"/><path d="M46 8v-2M46 22v2M40.5 14h-2M53.5 14h-2"/></svg>
+        </div>
+        <div class="proj-body">
+          <div class="date">2023</div>
+          <h3>Serre autonome — Raspberry Pi</h3>
+          <p>Serre automatisée : irrigation, ventilation et luminosité pilotées par capteurs, régulation en temps réel.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Raspberry Pi</span><span class="tag">IoT</span></div>
+        </div>
       </div>
 
       <div class="proj-card">
-        <div class="date">2025</div>
-        <h3>Site web JO 2028 — PHP / HTML / CSS</h3>
-        <p>Site complet inspiré des Jeux Olympiques de Paris 2024, front-end et back-end, responsive et multi-pages.</p>
-        <div class="tags"><span class="tag">PHP</span><span class="tag">HTML/CSS</span><span class="tag">Responsive</span></div>
+        <div class="proj-visual">
+          <svg viewBox="0 0 64 64"><rect x="10" y="36" width="14" height="18"/><rect x="25" y="24" width="14" height="30"/><rect x="40" y="42" width="14" height="12"/><path d="M32 6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></svg>
+        </div>
+        <div class="proj-body">
+          <div class="date">2025</div>
+          <h3>Site web JO 2028 — PHP / HTML / CSS</h3>
+          <p>Site complet inspiré des Jeux Olympiques de Paris 2024, front-end et back-end, responsive et multi-pages.</p>
+          <div class="tags"><span class="tag">PHP</span><span class="tag">HTML/CSS</span><span class="tag">Responsive</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -499,9 +591,9 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
     </div>
 
     <div class="lecture-tabs" role="tablist">
-      <button class="lecture-tab active" data-view="comp" role="tab" aria-selected="true">Par compétences</button>
-      <button class="lecture-tab" data-view="proj" role="tab" aria-selected="false">Par projets</button>
-      <button class="lecture-tab" data-view="matrix" role="tab" aria-selected="false">Tableau croisé</button>
+      <button class="lecture-tab active" data-view="comp" role="tab" aria-selected="true">par compétences</button>
+      <button class="lecture-tab" data-view="proj" role="tab" aria-selected="false">par projets</button>
+      <button class="lecture-tab" data-view="matrix" role="tab" aria-selected="false">tableau croisé</button>
     </div>
 
     <!-- VIEW 1 : PAR COMPETENCES -->
@@ -510,7 +602,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
 
         <div class="comp-card c1">
           <div class="comp-head">
-            <span class="comp-num">Compétence 1/3</span>
+            <span class="comp-num">compétence 1/3</span>
             <h3>Gérer des données de l'information</h3>
           </div>
           <p class="comp-tagline">Concevoir une base de données à partir d'un besoin, l'interroger, la sécuriser, puis restituer la donnée de façon lisible — jusqu'au dashboard.</p>
@@ -521,7 +613,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
             <li>Construire des dashboards et des visualisations de données</li>
           </ul>
           <div class="comp-proofs">
-            <div class="label">Preuves — projets mobilisés</div>
+            <div class="label">preuves — projets mobilisés</div>
             <div class="comp-chip-row">
               <button class="comp-chip" data-jump="p1">Conception de base de données relationnelle</button>
               <button class="comp-chip" data-jump="p2">Plateforme de gestion de buvette associative</button>
@@ -536,7 +628,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
 
         <div class="comp-card c2">
           <div class="comp-head">
-            <span class="comp-num">Compétence 2/3</span>
+            <span class="comp-num">compétence 2/3</span>
             <h3>Conduire un projet</h3>
           </div>
           <p class="comp-tagline">Identifier un besoin, le formaliser en cahier des charges, suivre un cycle de développement et livrer un projet en mesurant ses impacts.</p>
@@ -547,7 +639,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
             <li>Intégrer un projet dans le système d'information d'une organisation</li>
           </ul>
           <div class="comp-proofs">
-            <div class="label">Preuves — projets mobilisés</div>
+            <div class="label">preuves — projets mobilisés</div>
             <div class="comp-chip-row">
               <button class="comp-chip" data-jump="p2">Plateforme de gestion de buvette associative</button>
               <button class="comp-chip" data-jump="p3">Création d'un jeu 2D — architecture logicielle</button>
@@ -561,7 +653,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
 
         <div class="comp-card c3">
           <div class="comp-head">
-            <span class="comp-num">Compétence 3/3</span>
+            <span class="comp-num">compétence 3/3</span>
             <h3>Collaborer au sein d'une équipe informatique</h3>
           </div>
           <p class="comp-tagline">Situer son rôle dans une équipe pluridisciplinaire, mobiliser des compétences interpersonnelles et rendre compte de son activité professionnelle.</p>
@@ -572,7 +664,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
             <li>Rendre compte de son activité professionnelle</li>
           </ul>
           <div class="comp-proofs">
-            <div class="label">Preuves — projets mobilisés</div>
+            <div class="label">preuves — projets mobilisés</div>
             <div class="comp-chip-row">
               <button class="comp-chip" data-jump="p11">Stage XELIANS</button>
             </div>
@@ -618,10 +710,10 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
         <table class="matrix">
           <thead>
             <tr>
-              <th>Projet</th>
-              <th class="center">C1 — Données</th>
-              <th class="center">C2 — Projet</th>
-              <th class="center">C3 — Équipe</th>
+              <th>projet</th>
+              <th class="center">C1 — données</th>
+              <th class="center">C2 — projet</th>
+              <th class="center">C3 — équipe</th>
             </tr>
           </thead>
           <tbody>
@@ -652,32 +744,31 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
 <section id="outils">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker">Boîte à outils</div>
       <h2>Langages, technologies & méthodes</h2>
     </div>
     <div class="skill-grid">
       <div class="skill-group">
-        <div class="label">Langages</div>
+        <div class="label">langages</div>
         <div class="items">Java · Python · C · PHP · JavaScript · HTML5 · CSS3 · SQL · Bash</div>
       </div>
       <div class="skill-group">
-        <div class="label">Bases de données</div>
+        <div class="label">bases de données</div>
         <div class="items">PostgreSQL · MySQL · MongoDB · Merise · Schéma UML</div>
       </div>
       <div class="skill-group">
-        <div class="label">Technologies & méthodes</div>
+        <div class="label">technologies & méthodes</div>
         <div class="items">UML · MVC · Design Patterns · Réseaux · Git / GitHub · JUnit</div>
       </div>
       <div class="skill-group">
-        <div class="label">Outils</div>
+        <div class="label">outils</div>
         <div class="items">IntelliJ · PyCharm · Qlik Sense · Linux (Ubuntu) · VirtualBox</div>
       </div>
     </div>
     <div class="lang-grid">
-      <div class="lang-item"><b>Français</b><span>Langue maternelle</span><div class="lang-bar"><i style="width:100%"></i></div></div>
-      <div class="lang-item"><b>Anglais</b><span>B2 — Avancé</span><div class="lang-bar"><i style="width:70%"></i></div></div>
-      <div class="lang-item"><b>Espagnol</b><span>B1 — Intermédiaire</span><div class="lang-bar"><i style="width:50%"></i></div></div>
-      <div class="lang-item"><b>Arabe</b><span>A1 — Débutant</span><div class="lang-bar"><i style="width:18%"></i></div></div>
+      <div class="lang-item"><b>Français</b><span>langue maternelle</span><div class="lang-bar"><i style="width:100%"></i></div></div>
+      <div class="lang-item"><b>Anglais</b><span>B2 — avancé</span><div class="lang-bar"><i style="width:70%"></i></div></div>
+      <div class="lang-item"><b>Espagnol</b><span>B1 — intermédiaire</span><div class="lang-bar"><i style="width:50%"></i></div></div>
+      <div class="lang-item"><b>Arabe</b><span>A1 — débutant</span><div class="lang-bar"><i style="width:18%"></i></div></div>
     </div>
   </div>
 </section>
@@ -690,10 +781,10 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
         <p>Je recherche une entreprise pour m'accueillir en alternance à partir de la rentrée 2027, dans le cadre d'un Master. N'hésitez pas à me contacter pour en discuter.</p>
       </div>
       <div class="contact-links">
-        <a href="mailto:youadah60@gmail.com">Email <span>youadah60@gmail.com</span></a>
-        <a href="tel:+33768720793">Téléphone <span>07 68 72 07 93</span></a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/yanis-ouadah-24197632a/" target="_blank" rel="noopener noreferrer"> LinkedIn <span>/in/yanis-ouadah</span> </a>
-        <a href="https://github.com/Yanis-O" target="_blank" rel="noopener">GitHub <span>/Yanis-O</span></a>
+        <a href="mailto:youadah60@gmail.com">email <span>youadah60@gmail.com</span></a>
+        <a href="tel:+33768720793">téléphone <span>07 68 72 07 93</span></a>
+        <a href="https://www.linkedin.com/in/yanis-ouadah-24197632a/" target="_blank" rel="noopener noreferrer">linkedin <span>/in/yanis-ouadah</span></a>
+        <a href="https://github.com/Yanis-O" target="_blank" rel="noopener">github <span>/Yanis-O</span></a>
       </div>
     </div>
   </div>
@@ -731,6 +822,18 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
         target.classList.add('flash');
         setTimeout(function(){ target.classList.remove('flash'); }, 1600);
       }
+    });
+  });
+
+  // active nav link highlight on scroll
+  var navLinks = document.querySelectorAll('nav a');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section, header.hero'));
+  window.addEventListener('scroll', function(){
+    var pos = window.scrollY + 120;
+    var current = sections[0];
+    sections.forEach(function(s){ if(s.offsetTop <= pos) current = s; });
+    navLinks.forEach(function(a){
+      a.classList.toggle('current', a.getAttribute('href') === '#' + current.id);
     });
   });
 })();
