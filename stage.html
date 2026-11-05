@@ -4,7 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yanis Ouadah — Portfolio · Recherche de stage 2027</title>
+<meta name="description" content="Yanis Ouadah, étudiant en 3e année de BUT Informatique (IUT de Montreuil). Recherche un stage de 3 à 6 mois à partir du 8 mars 2027 : systèmes & réseaux, développement, données.">
+<meta property="og:title" content="Yanis Ouadah — Stage BUT Informatique dès le 8 mars 2027">
+<meta property="og:description" content="Administration systèmes, développement (Java, Python, PHP) et exploitation de données. Stage de 3 à 6 mois.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yanis-o.github.io/Portfolio/stage.html">
+<meta name="theme-color" content="#F5F3EE">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314181F'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='15' fill='%23F5F3EE' text-anchor='middle'%3EYO%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -12,7 +20,7 @@
   --paper-dim:#EDEAE2;
   --ink:#14181F;
   --ink-soft:#4B5160;
-  --muted:#8A8F9B;
+  --muted:#7C818D;
   --line:#DAD6CB;
   --accent:#2955C4;
   --accent-soft:#E7ECFA;
@@ -21,102 +29,85 @@
   --radius:10px;
 }
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;scroll-padding-top:70px;}
 body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
+  margin:0;background:var(--paper);color:var(--ink);
   font-family:"Inter",-apple-system,Segoe UI,Helvetica,Arial,sans-serif;
-  font-size:16px;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
 }
-h1,h2,h3,.disp{
-  font-family:"Space Grotesk","Inter",sans-serif;
-  color:var(--ink);
-  letter-spacing:-0.01em;
-  margin:0;
-}
+h1,h2,h3,.disp{font-family:"Space Grotesk","Inter",sans-serif;color:var(--ink);letter-spacing:-0.01em;margin:0;}
 a{color:var(--accent);}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
 .wrap{max-width:960px;margin:0 auto;padding:0 28px;}
 .wrap-narrow{max-width:760px;margin:0 auto;padding:0 28px;}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:8px 12px;border-radius:6px;z-index:50;}
+.skip:focus{left:8px;}
 
 /* NAV */
-nav{
-  position:sticky; top:0; z-index:20;
-  background:rgba(245,243,238,.88);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
-}
-nav .inner{
-  max-width:960px;margin:0 auto;padding:16px 28px;
-  display:flex; align-items:center; justify-content:space-between;
-}
-nav .brand{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:17px;}
+nav{position:sticky;top:0;z-index:20;background:rgba(245,243,238,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+nav .inner{max-width:960px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+nav .brand{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:17px;text-decoration:none;color:var(--ink);}
 nav .brand span{color:var(--accent);}
-nav ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;}
-nav a{color:var(--ink-soft);text-decoration:none;font-size:14.5px;}
-nav a:hover{color:var(--accent);}
+nav ul{list-style:none;display:flex;gap:24px;margin:0;padding:0;}
+nav ul a{color:var(--ink-soft);text-decoration:none;font-size:14.5px;padding:4px 0;border-bottom:2px solid transparent;}
+nav ul a:hover{color:var(--accent);}
+nav ul a.active{color:var(--accent);border-bottom-color:var(--accent);}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:7px 10px;cursor:pointer;color:var(--ink);font:inherit;font-size:14px;}
 
 /* HERO */
-.hero{padding:78px 0 54px 0;position:relative;overflow:hidden;}
+.hero{padding:72px 0 48px 0;position:relative;overflow:hidden;}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;}
-.badge{
-  display:inline-flex;align-items:center;gap:7px;
-  background:var(--accent-soft);color:var(--accent);
-  border-radius:100px;padding:6px 13px 6px 10px;
-  font-size:13px;font-weight:600;margin-bottom:22px;
-}
+.badge{display:inline-flex;align-items:center;gap:7px;background:var(--accent-soft);color:var(--accent);border-radius:100px;padding:6px 13px 6px 10px;font-size:13px;font-weight:600;margin-bottom:22px;}
 .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--pulse);animation:pulse 2.2s ease-in-out infinite;}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.45;transform:scale(1.5);}}
 .hero h1{font-size:41px;line-height:1.16;font-weight:600;max-width:640px;}
 .hero h1 em{font-style:normal;color:var(--accent);}
 .hero p.lead{margin-top:18px;font-size:16.5px;color:var(--ink-soft);max-width:540px;}
-.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
-.btn{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:11px 18px;border-radius:8px;font-size:14.5px;font-weight:600;
-  text-decoration:none;border:1px solid transparent;
-}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:8px;font-size:14.5px;font-weight:600;text-decoration:none;border:1px solid transparent;transition:background .15s,border-color .15s,color .15s;}
+.btn svg{width:16px;height:16px;}
 .btn-primary{background:var(--ink);color:var(--paper);}
 .btn-primary:hover{background:var(--accent);}
-.btn-ghost{border-color:var(--line);color:var(--ink);}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:transparent;}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
-
 .hero-graphic{position:relative;height:290px;}
 .hero-graphic svg{width:100%;height:100%;}
-
-.meta-strip{
-  border-top:1px solid var(--line);
-  padding:20px 0;display:flex;flex-wrap:wrap;gap:28px;
-  color:var(--muted);font-size:13.5px;
-}
+.meta-strip{border-top:1px solid var(--line);padding:20px 0;margin-top:40px;display:flex;flex-wrap:wrap;gap:12px 28px;color:var(--muted);font-size:13.5px;}
 .meta-strip strong{color:var(--ink-soft);font-weight:600;}
 
-section{padding:56px 0;}
+section{padding:60px 0;}
 section.alt{background:var(--paper-dim);}
-.section-head{margin-bottom:32px;max-width:560px;}
+.section-head{margin-bottom:32px;max-width:600px;}
 .section-head .kicker{color:var(--accent);font-weight:600;font-size:13.5px;margin-bottom:6px;}
 .section-head h2{font-size:27px;font-weight:600;}
 .section-head p{color:var(--ink-soft);margin-top:8px;font-size:15px;}
 
 /* ABOUT */
 .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:44px;}
-.about-grid p{color:var(--ink-soft);font-size:15.5px;}
-.stat-list{display:flex;flex-direction:column;gap:16px;}
+.about-grid p{color:var(--ink-soft);font-size:15.5px;margin:0 0 14px;}
+.stat-list{display:flex;flex-direction:column;gap:18px;}
 .stat{border-left:2px solid var(--accent);padding-left:14px;}
-.stat b{display:block;font-family:"Space Grotesk",sans-serif;font-size:19px;}
+.stat b{display:block;font-family:"Space Grotesk",sans-serif;font-size:22px;line-height:1.2;}
 .stat span{color:var(--muted);font-size:13.5px;}
+
+/* HIGHLIGHT (stage) */
+.highlight{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 30px;}
+.highlight .top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 20px;align-items:baseline;}
+.highlight h3{font-size:19px;font-weight:600;}
+.highlight h3 .org{color:var(--accent);}
+.highlight .date{color:var(--muted);font-size:13px;font-weight:600;}
+.highlight .env{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;}
+.wins{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;}
+.win{background:var(--paper);border-radius:10px;padding:16px;}
+.win b{display:block;font-family:"Space Grotesk",sans-serif;font-size:24px;color:var(--accent);line-height:1.1;}
+.win p{margin:6px 0 0;color:var(--ink-soft);font-size:13.8px;line-height:1.5;}
 
 /* TIMELINE */
 .timeline{position:relative;padding-left:26px;}
 .timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1.5px;background:var(--line);}
-.tl-item{position:relative;padding-bottom:30px;}
+.tl-item{position:relative;padding-bottom:28px;}
 .tl-item:last-child{padding-bottom:0;}
-.tl-item::before{
-  content:"";position:absolute;left:-26px;top:4px;width:11px;height:11px;
-  border-radius:50%;background:var(--paper);border:2px solid var(--accent);
-}
+.tl-item::before{content:"";position:absolute;left:-26px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--paper);border:2px solid var(--accent);}
 .tl-item .date{color:var(--muted);font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;}
 .tl-item h3{font-size:17px;margin-top:3px;font-weight:600;}
 .tl-item h3 .org{color:var(--accent);font-weight:600;}
@@ -124,67 +115,92 @@ section.alt{background:var(--paper-dim);}
 .tl-item ul li{margin-bottom:3px;}
 
 /* PROJECTS */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+.filter{font:inherit;font-size:13.5px;font-weight:600;padding:7px 14px;border-radius:100px;border:1px solid var(--line);background:transparent;color:var(--ink-soft);cursor:pointer;}
+.filter:hover{border-color:var(--accent);color:var(--accent);}
+.filter[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper);}
 .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.proj-card{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-  padding:20px 22px;
-}
+.proj-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;display:flex;flex-direction:column;transition:transform .15s,border-color .15s,box-shadow .15s;}
+.proj-card:hover{transform:translateY(-2px);border-color:#C9C4B6;box-shadow:0 6px 18px rgba(20,24,31,.06);}
+.proj-card.featured{border-color:var(--accent);}
+.proj-card .head{display:flex;justify-content:space-between;align-items:center;gap:10px;}
 .proj-card .date{color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;}
+.star{font-size:11px;font-weight:700;color:var(--pulse);text-transform:uppercase;letter-spacing:.04em;}
 .proj-card h3{font-size:15.5px;margin-top:5px;font-weight:600;}
-.proj-card p{color:var(--ink-soft);font-size:13.8px;margin-top:7px;}
-.proj-card .tags{margin-top:11px;display:flex;flex-wrap:wrap;gap:6px;}
+.proj-card p{color:var(--ink-soft);font-size:13.8px;margin:7px 0 0;flex:1;}
+.proj-card .tags{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;}
+.proj-card[hidden]{display:none;}
 .tag{font-size:11.5px;color:var(--accent);background:var(--accent-soft);padding:3px 8px;border-radius:100px;}
 
 /* SKILLS */
-.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px 40px;}
-.skill-group .label{color:var(--accent);font-weight:600;font-size:13.5px;margin-bottom:8px;}
-.skill-group .items{color:var(--ink-soft);font-size:14.5px;line-height:1.8;}
-.lang-grid{margin-top:36px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.skill-group{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;}
+.skill-group .label{color:var(--accent);font-weight:600;font-size:13.5px;margin-bottom:10px;}
+.skill-group .items{display:flex;flex-wrap:wrap;gap:6px;}
+.chip{font-size:13px;color:var(--ink-soft);border:1px solid var(--line);padding:3px 10px;border-radius:100px;}
+.lang-grid{margin-top:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
 .lang-item{border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--card);}
 .lang-item b{display:block;font-size:14.5px;}
 .lang-item span{color:var(--muted);font-size:12.5px;}
 .lang-bar{margin-top:8px;height:4px;border-radius:2px;background:var(--line);overflow:hidden;}
 .lang-bar i{display:block;height:100%;background:var(--accent);}
+.soft{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;color:var(--ink-soft);font-size:14px;}
+.soft strong{color:var(--ink);margin-right:6px;}
 
 /* CONTACT */
-.contact-card{
-  background:var(--ink);color:var(--paper);
-  border-radius:16px;padding:44px 40px;
-  display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center;
-}
+.contact-card{background:var(--ink);color:var(--paper);border-radius:16px;padding:44px 40px;display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center;}
 .contact-card h2{color:var(--paper);font-size:26px;font-weight:600;}
 .contact-card p{color:#B9BEC9;margin-top:10px;font-size:14.5px;max-width:400px;}
+.contact-card .btn-cv{margin-top:20px;background:var(--paper);color:var(--ink);}
+.contact-card .btn-cv:hover{background:var(--pulse);color:var(--ink);}
 .contact-links{display:flex;flex-direction:column;gap:12px;}
-.contact-links a{
-  color:var(--paper);text-decoration:none;font-size:14.5px;
-  display:flex;justify-content:space-between;border-bottom:1px solid #2B303B;padding-bottom:10px;
-}
+.contact-links a{color:var(--paper);text-decoration:none;font-size:14.5px;display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #2B303B;padding-bottom:10px;}
 .contact-links a span{color:#8A8F9B;}
 .contact-links a:hover{color:var(--pulse);}
 
 footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:center;}
 
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.in{opacity:1;transform:none;}
+
 @media(max-width:760px){
+  .hero{padding-top:44px;}
   .hero-grid{grid-template-columns:1fr;}
-  .hero-graphic{height:180px;order:-1;}
+  .hero-graphic{height:170px;order:-1;}
   .hero h1{font-size:31px;}
-  .about-grid{grid-template-columns:1fr;}
-  .proj-grid{grid-template-columns:1fr;}
-  .skill-grid{grid-template-columns:1fr;}
+  .about-grid,.proj-grid,.skill-grid,.wins{grid-template-columns:1fr;}
   .lang-grid{grid-template-columns:repeat(2,1fr);}
   .contact-card{grid-template-columns:1fr;padding:32px 24px;}
-  nav ul{display:none;}
+  .highlight{padding:22px 20px;}
+  .menu-btn{display:block;}
+  nav ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:6px 28px 14px;}
+  nav ul.open{display:flex;}
+  nav ul a{display:block;padding:10px 0;border-bottom:1px solid var(--line);}
+  nav ul a.active{border-bottom-color:var(--line);}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+  .reveal{opacity:1;transform:none;}
+}
+@media print{
+  nav,.hero-graphic,.filters,.cta-row{display:none;}
+  section{padding:24px 0;}
+  .reveal{opacity:1;transform:none;}
 }
 </style>
 </head>
 <body>
+<a class="skip" href="#apropos">Aller au contenu</a>
 
-<nav>
+<nav aria-label="Navigation principale">
   <div class="inner">
-    <div class="brand">Yanis <span>Ouadah</span></div>
-    <ul>
-      <li><a href="#accueil" style="color:var(--accent)">Accueil</a></li>
+    <a class="brand" href="#accueil">Yanis <span>Ouadah</span></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul id="menu">
+      <li><a href="#accueil">Accueil</a></li>
       <li><a href="#apropos">À propos</a></li>
+      <li><a href="#stage">Stage</a></li>
       <li><a href="#parcours">Parcours</a></li>
       <li><a href="#projets">Projets</a></li>
       <li><a href="#competences">Compétences</a></li>
@@ -198,15 +214,19 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
     <div class="hero-grid">
       <div>
         <div class="badge"><span class="dot"></span>Disponible pour un stage — dès le 8 mars 2027</div>
-        <h1>Je construis des systèmes qui font <em>circuler la donnée</em>.</h1>
-        <p class="lead">Étudiant en 3ᵉ année de BUT Informatique à l'IUT de Montreuil, je recherche un stage de 14 semaines minimum à partir du 8 mars 2027 — entre optimisation des flux réseaux et exploitation de données.</p>
+        <h1>Du poste de travail à la base de données, je fais <em>tourner les systèmes</em>.</h1>
+        <p class="lead">Étudiant en 3ᵉ année de BUT Informatique à l'IUT de Montreuil, je recherche un stage de 3 à 6 mois (14 semaines minimum) à partir du 8 mars 2027 — en administration systèmes & réseaux, développement ou exploitation de données.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="mailto:youadah60@gmail.com">Écrire un email</a>
+          <a class="btn btn-primary" href="CV_Yanis_Ouadah_Stage.pdf" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+            Télécharger mon CV
+          </a>
+          <a class="btn btn-ghost" href="mailto:youadah60@gmail.com?subject=Stage%20-%20Yanis%20Ouadah">Écrire un email</a>
           <a class="btn btn-ghost" href="https://www.linkedin.com/in/yanis-ouadah-24197632a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a class="btn btn-ghost" href="https://github.com/Yanis-O" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-ghost" href="https://github.com/Yanis-O" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
       </div>
-      <div class="hero-graphic">
+      <div class="hero-graphic" aria-hidden="true">
 <svg viewBox="0 0 360 290" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g stroke="#DAD6CB" stroke-width="1.4">
     <line x1="40" y1="60" x2="150" y2="40"/>
@@ -220,237 +240,296 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12.5px;text-align:cent
     <line x1="60" y1="210" x2="90" y2="260"/>
   </g>
   <g stroke="#2955C4" stroke-width="2">
-    <line x1="150" y1="40" x2="270" y2="70" stroke-dasharray="6 7">
-      <animate attributeName="stroke-dashoffset" values="26;0" dur="1.6s" repeatCount="indefinite"/>
-    </line>
-    <line x1="120" y1="150" x2="220" y2="190" stroke-dasharray="6 7">
-      <animate attributeName="stroke-dashoffset" values="0;26" dur="2.1s" repeatCount="indefinite"/>
-    </line>
+    <line x1="150" y1="40" x2="270" y2="70" stroke-dasharray="6 7"><animate attributeName="stroke-dashoffset" values="26;0" dur="1.6s" repeatCount="indefinite"/></line>
+    <line x1="120" y1="150" x2="220" y2="190" stroke-dasharray="6 7"><animate attributeName="stroke-dashoffset" values="0;26" dur="2.1s" repeatCount="indefinite"/></line>
+    <line x1="150" y1="40" x2="120" y2="150" stroke-dasharray="6 7"><animate attributeName="stroke-dashoffset" values="26;0" dur="2.6s" repeatCount="indefinite"/></line>
   </g>
   <g fill="#14181F">
-    <circle cx="40" cy="60" r="4.5"/>
-    <circle cx="270" cy="70" r="4.5"/>
-    <circle cx="300" cy="170" r="4.5"/>
-    <circle cx="60" cy="210" r="4.5"/>
-    <circle cx="90" cy="260" r="4.5"/>
-    <circle cx="190" cy="250" r="4.5"/>
+    <circle cx="40" cy="60" r="4.5"/><circle cx="270" cy="70" r="4.5"/><circle cx="300" cy="170" r="4.5"/>
+    <circle cx="60" cy="210" r="4.5"/><circle cx="90" cy="260" r="4.5"/><circle cx="190" cy="250" r="4.5"/>
   </g>
-  <g fill="#2955C4">
-    <circle cx="150" cy="40" r="6.5"/>
-    <circle cx="120" cy="150" r="6.5"/>
-    <circle cx="220" cy="190" r="6.5"/>
-  </g>
+  <g fill="#2955C4"><circle cx="150" cy="40" r="6.5"/><circle cx="120" cy="150" r="6.5"/><circle cx="220" cy="190" r="6.5"/></g>
 </svg>
-</div>
+      </div>
     </div>
-  </div>
-  <div class="wrap">
-    <div class="meta-strip"><div><strong>Recherche</strong> — stage de 14 semaines minimum</div><div><strong>Début</strong> — 8 mars 2027</div><div><strong>Localisation</strong> — Le Blanc-Mesnil (93) — mobile en Île-de-France</div><div><strong>Permis</strong> — B</div></div>
+    <div class="meta-strip">
+      <div><strong>Recherche</strong> — stage de 3 à 6 mois</div>
+      <div><strong>Début</strong> — 8 mars 2027</div>
+      <div><strong>Localisation</strong> — Le Blanc-Mesnil (93), mobile en Île-de-France</div>
+      <div><strong>Permis</strong> — B</div>
+    </div>
   </div>
 </header>
 
+<main>
 <section id="apropos">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="kicker">À propos</div>
-      <h2>Étudiant en BUT Informatique, entre réseaux et données</h2>
+      <h2>Un profil technique et terrain</h2>
     </div>
     <div class="about-grid">
-      <p>
-        Actuellement en 3ᵉ année de BUT Informatique à l'IUT de Montreuil (Université Paris 8),
-        je construis une double expertise entre l'optimisation des flux réseaux et l'exploitation
-        de données — modélisation, bases de données relationnelles, dashboards. Un stage chez
-        XELIANS m'a confronté à des problématiques réseau et infrastructure en conditions réelles,
-        aux côtés de techniciens, d'administrateurs systèmes et d'ingénieurs réseaux. À l'aise aussi
-        bien sur des projets de développement que sur des missions de support technique, je code
-        en Java, Python, PHP et SQL, et j'aime aller du schéma de données jusqu'à l'interface qui
-        l'exploite.
-      </p>
-      <div class="stat-list">
-        <div class="stat"><b>10+</b><span>projets techniques menés, du script Raspberry Pi au dashboard Qlik Sense</span></div>
-        <div class="stat"><b>3</b><span>expériences professionnelles en parallèle des études</span></div>
-        <div class="stat"><b>4</b><span>langues pratiquées, dont l'anglais en B2</span></div>
+      <div class="reveal">
+        <p>Je suis en 3ᵉ année de BUT Informatique à l'IUT de Montreuil (Université Paris 8). Mon premier stage, chez Xelians Archivage, m'a plongé dans l'administration d'un vrai parc : automatisation PowerShell, sécurisation de postes Linux, Active Directory et support utilisateurs.</p>
+        <p>À côté, je développe en Java, Python, PHP et SQL : applications web, architecture MVC testée, entrepôt de données et tableaux de bord. J'aime comprendre un système de bout en bout, de la base de données jusqu'à l'outil qu'on utilise au quotidien.</p>
+        <p>En parallèle de mes études, je travaille de nuit et le week-end (restauration, aéroport de Roissy) : j'y ai appris la fiabilité, la gestion d'équipe et le respect des délais.</p>
+      </div>
+      <div class="stat-list reveal">
+        <div class="stat"><b>100+ postes</b><span>inventoriés automatiquement par script PowerShell pendant mon stage</span></div>
+        <div class="stat"><b>10 projets</b><span>du script Raspberry Pi au dashboard Qlik Sense</span></div>
+        <div class="stat"><b>3 expériences</b><span>professionnelles en parallèle des études</span></div>
+        <div class="stat"><b>Anglais B2</b><span>+ espagnol B1, arabe A1</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="alt" id="parcours">
-  <div class="wrap-narrow">
-    <div class="section-head">
-      <div class="kicker">Parcours</div>
-      <h2>Formation & expériences professionnelles</h2>
+<section class="alt" id="stage">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">Expérience phare</div>
+      <h2>Stage d'assistant informatique</h2>
+      <p>Au service informatique d'un acteur de l'archivage, sur un parc en production.</p>
     </div>
-    <div class="timeline">
+    <div class="highlight reveal">
+      <div class="top">
+        <h3>Assistant informatique — <span class="org">Xelians Archivage, Villeneuve-la-Garenne</span></h3>
+        <span class="date">Avril – Juin 2026</span>
+      </div>
+      <div class="env">
+        <span class="tag">Windows</span><span class="tag">Ubuntu 24.04</span><span class="tag">Active Directory</span><span class="tag">PowerShell</span><span class="tag">Ivanti</span><span class="tag">AppLocker</span><span class="tag">FreshService</span>
+      </div>
+      <div class="wins">
+        <div class="win"><b>100+</b><p>postes inventoriés via un script PowerShell déployé avec Ivanti, pour bâtir la liste blanche AppLocker.</p></div>
+        <div class="win"><b>10+</b><p>postes Ubuntu déployés et sécurisés (BitDefender, EDR, FortiClient), intégrés à l'Active Directory.</p></div>
+        <div class="win"><b>N1</b><p>tickets de support résolus sur FreshService : Sage, bibliothèques Python, changements de VLAN.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="parcours">
+  <div class="wrap-narrow">
+    <div class="section-head reveal">
+      <div class="kicker">Parcours</div>
+      <h2>Formation & expériences</h2>
+    </div>
+    <div class="timeline reveal">
       <div class="tl-item">
         <div class="date">2024 – 2027 · 3ᵉ année en cours</div>
         <h3>BUT Informatique — <span class="org">IUT de Montreuil, Université Paris 8</span></h3>
         <ul>
-          <li>Algorithmique, programmation, réseaux, bases de données</li>
-          <li>PostgreSQL, MySQL, MongoDB, Merise, schéma UML</li>
-        </ul>
-      </div>
-      <div class="tl-item">
-        <div class="date">Avril – Juin 2026</div>
-        <h3>Stage Assistant Informatique — <span class="org">XELIANS, Villeneuve-la-Garenne</span></h3>
-        <ul>
-          <li>Étude et refonte complète du système de transfert de fichiers interne et externe</li>
-          <li>Analyse préalable des besoins pour optimiser la circulation et la sécurité des données</li>
-          <li>Collaboration quotidienne avec techniciens, admins systèmes et ingénieurs réseaux</li>
+          <li>Algorithmique, programmation, réseaux, bases de données, développement logiciel</li>
+          <li>PostgreSQL, MySQL, MongoDB, Merise, UML</li>
         </ul>
       </div>
       <div class="tl-item">
         <div class="date">Depuis juin 2026</div>
-        <h3>Manutentionnaire / Livreur — <span class="org">Économat AREAS, Aéroport Roissy CDG</span></h3>
-        <ul><li>Permis T et titre de circulation aéroportuaire (TCA) ; préparation et livraison de commandes dans les délais</li></ul>
+        <h3>Manutentionnaire / Livreur — <span class="org">Économat AREAS, Aéroport Roissy-CDG</span></h3>
+        <ul>
+          <li>Livraison de 5 à 6 points de vente en zone aéroportuaire réglementée, avec des délais stricts</li>
+          <li>Permis T (conduite côté piste) et titre de circulation aéroportuaire (TCA)</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="date">Avril – Juin 2026</div>
+        <h3>Stage assistant informatique — <span class="org">Xelians Archivage</span></h3>
+        <ul><li>Automatisation PowerShell, sécurisation de postes Ubuntu, Active Directory, support N1 (<a href="#stage">détails</a>)</li></ul>
       </div>
       <div class="tl-item">
         <div class="date">Sept. 2025 – Sept. 2026</div>
-        <h3>Équipier polyvalent — <span class="org">McDonald's, Paris Madeleine</span></h3>
-        <ul><li>Polyvalence caisse / cuisine / salle de nuit ; missions de responsable d'équipe (inventaires, caisse, pertes)</li></ul>
+        <h3>Équipier polyvalent (nuit) — <span class="org">McDonald's, Paris Madeleine</span></h3>
+        <ul>
+          <li>100 à 500 clients servis par nuit sur les postes caisse, cuisine et salle</li>
+          <li>Encadrement de 3 à 4 équipiers, inventaires, comptages de caisse et suivi des pertes</li>
+        </ul>
       </div>
       <div class="tl-item">
         <div class="date">2021 – 2024</div>
-        <h3>Baccalauréat Général — <span class="org">Lycée Wolfgang Amadeus Mozart</span></h3>
-        <ul><li>Mention Assez Bien · Spécialités Mathématiques, NSI</li></ul>
+        <h3>Baccalauréat général — <span class="org">Lycée Wolfgang Amadeus Mozart</span></h3>
+        <ul><li>Mention Assez Bien · Spécialités Mathématiques et NSI</li></ul>
       </div>
     </div>
   </div>
 </section>
 
-<section id="projets">
+<section class="alt" id="projets">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="kicker">Projets</div>
       <h2>Projets techniques</h2>
-      <p>Une sélection de projets menés en autonomie ou en groupe, du schéma de données au déploiement.</p>
+      <p>Une sélection de projets menés seul ou en équipe. Filtrez par domaine.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filtrer les projets">
+      <button class="filter" data-filter="all" aria-pressed="true">Tous</button>
+      <button class="filter" data-filter="dev" aria-pressed="false">Développement</button>
+      <button class="filter" data-filter="data" aria-pressed="false">Données</button>
+      <button class="filter" data-filter="sys" aria-pressed="false">Systèmes & IoT</button>
     </div>
     <div class="proj-grid">
-      
-      <div class="proj-card">
-        <div class="date">Janvier 2024</div>
-        <h3>Conception de base de données relationnelle</h3>
-        <p>Schémas MCD, MLD et MPD complets selon un cahier des charges ; requêtes SQL complexes, indexation et transactions.</p>
-        <div class="tags"><span class="tag">SQL</span><span class="tag">Merise</span><span class="tag">PostgreSQL</span></div>
-      </div>
-
-      <div class="proj-card">
-        <div class="date">Nov. 2025 – Jan. 2026</div>
+      <article class="proj-card featured" data-cat="dev data">
+        <div class="head"><span class="date">Nov. 2025 – Janv. 2026</span><span class="star">★ Projet phare</span></div>
         <h3>Plateforme de gestion de buvette associative</h3>
-        <p>Application web sur base de données relationnelle avec gestion fine des droits (Client, Admin, Barman).</p>
+        <p>Application web sur base de données relationnelle, avec des droits d'accès différents selon le rôle (Client, Admin, Barman).</p>
         <div class="tags"><span class="tag">PHP</span><span class="tag">JavaScript</span><span class="tag">SQL</span></div>
-      </div>
-
-      <div class="proj-card">
-        <div class="date">Mai 2024 – Oct. 2025</div>
-        <h3>Création d'un jeu 2D — architecture logicielle</h3>
-        <p>Pattern MVC en Java pour isoler la logique métier des données ; tests unitaires JUnit, gestion de version sous Git.</p>
-        <div class="tags"><span class="tag">Java</span><span class="tag">MVC</span><span class="tag">JUnit</span><span class="tag">Git</span></div>
-      </div>
-
-      <div class="proj-card">
-        <div class="date">2025</div>
-        <h3>Configuration poste Linux — Machine virtuelle</h3>
-        <p>Installation et configuration d'un poste Linux en VM : réseau, utilisateurs, services et sécurité de base.</p>
-        <div class="tags"><span class="tag">Linux</span><span class="tag">VirtualBox</span><span class="tag">Réseaux</span></div>
-      </div>
-
-      <div class="proj-card">
-        <div class="date">2025</div>
-        <h3>Entrepôt de données & Visualisation</h3>
-        <p>Collecte via API OpenAQ (Python) et fichiers CSV WorldCities / World Bank ; modélisation en star schéma PostgreSQL, dashboards Qlik Sense.</p>
+      </article>
+      <article class="proj-card featured" data-cat="data">
+        <div class="head"><span class="date">2025</span><span class="star">★ Projet phare</span></div>
+        <h3>Entrepôt de données & visualisation</h3>
+        <p>Collecte via l'API OpenAQ (Python) et des CSV WorldCities / World Bank, schéma en étoile sous PostgreSQL, tableaux de bord KPI dans Qlik Sense.</p>
         <div class="tags"><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">Qlik Sense</span></div>
-      </div>
-
-      <div class="proj-card">
-        <div class="date">2025</div>
+      </article>
+      <article class="proj-card featured" data-cat="dev">
+        <div class="head"><span class="date">Mai 2024 – Oct. 2025</span><span class="star">★ Projet phare</span></div>
+        <h3>Jeu 2D — architecture logicielle</h3>
+        <p>Pattern MVC en Java pour séparer la logique métier des données, tests unitaires JUnit et travail en équipe sous Git.</p>
+        <div class="tags"><span class="tag">Java</span><span class="tag">MVC</span><span class="tag">JUnit</span><span class="tag">Git</span></div>
+      </article>
+      <article class="proj-card" data-cat="dev">
+        <div class="head"><span class="date">2024</span></div>
+        <h3>Puissance 4 avec IA</h3>
+        <p>IA à plusieurs niveaux de difficulté (minimax avec élagage alpha-bêta) et gestion des états de jeu en console.</p>
+        <div class="tags"><span class="tag">Java</span><span class="tag">Algorithmique</span><span class="tag">Minimax</span></div>
+      </article>
+      <article class="proj-card" data-cat="sys">
+        <div class="head"><span class="date">2025</span></div>
+        <h3>Configuration d'un poste Linux en VM</h3>
+        <p>Installation et paramétrage d'un poste Linux sous VirtualBox : réseau, utilisateurs, services et sécurité de base.</p>
+        <div class="tags"><span class="tag">Linux</span><span class="tag">VirtualBox</span><span class="tag">Réseaux</span></div>
+      </article>
+      <article class="proj-card" data-cat="data">
+        <div class="head"><span class="date">2025</span></div>
         <h3>Portfolio de compétences Qlik Sense</h3>
-        <p>Suivi de l'évolution des compétences S1 → S4 à partir des relevés de notes, visualisations interactives.</p>
+        <p>Suivi de l'évolution des compétences du S1 au S4 à partir des relevés de notes, avec des visualisations interactives.</p>
         <div class="tags"><span class="tag">Qlik Sense</span><span class="tag">CSV</span></div>
-      </div>
-
-      <div class="proj-card">
-        <div class="date">2024</div>
-        <h3>Application Quiz — Java</h3>
-        <p>Architecture DTO avec interfaces IServicesQuestionnaire / IServicesJoueur ; tests JUnit 5 avec mocks manuels.</p>
-        <div class="tags"><span class="tag">Java</span><span class="tag">DTO</span><span class="tag">JUnit 5</span></div>
-      </div>
-
-      <div class="proj-card">
-        <div class="date">2024</div>
-        <h3>Puissance 4 avec IA — Java</h3>
-        <p>IA à plusieurs niveaux (algorithme minimax, élagage alpha-bêta), modes de difficulté progressifs.</p>
-        <div class="tags"><span class="tag">Java</span><span class="tag">IA</span><span class="tag">Minimax</span></div>
-      </div>
-
-      <div class="proj-card">
-        <div class="date">2023</div>
-        <h3>Serre autonome — Raspberry Pi</h3>
-        <p>Serre automatisée : irrigation, ventilation et luminosité pilotées par capteurs, régulation en temps réel.</p>
-        <div class="tags"><span class="tag">Python</span><span class="tag">Raspberry Pi</span><span class="tag">IoT</span></div>
-      </div>
-
-      <div class="proj-card">
-        <div class="date">2025</div>
-        <h3>Site web JO 2028 — PHP / HTML / CSS</h3>
-        <p>Site complet inspiré des Jeux Olympiques de Paris 2024, front-end et back-end, responsive et multi-pages.</p>
+      </article>
+      <article class="proj-card" data-cat="dev">
+        <div class="head"><span class="date">2025</span></div>
+        <h3>Site web JO 2028</h3>
+        <p>Site complet inspiré des Jeux Olympiques de Paris 2024 : front-end et back-end, responsive, données dynamiques, multi-pages.</p>
         <div class="tags"><span class="tag">PHP</span><span class="tag">HTML/CSS</span><span class="tag">Responsive</span></div>
-      </div>
+      </article>
+      <article class="proj-card" data-cat="dev">
+        <div class="head"><span class="date">2024</span></div>
+        <h3>Application Quiz</h3>
+        <p>Architecture DTO avec interfaces de services, tests JUnit 5 avec mocks manuels et exceptions personnalisées.</p>
+        <div class="tags"><span class="tag">Java</span><span class="tag">DTO</span><span class="tag">JUnit 5</span></div>
+      </article>
+      <article class="proj-card" data-cat="data">
+        <div class="head"><span class="date">Janvier 2024</span></div>
+        <h3>Conception de base de données relationnelle</h3>
+        <p>MCD, MLD et MPD complets selon un cahier des charges ; requêtes SQL complexes, indexation et transactions.</p>
+        <div class="tags"><span class="tag">SQL</span><span class="tag">Merise</span><span class="tag">PostgreSQL</span></div>
+      </article>
+      <article class="proj-card" data-cat="sys">
+        <div class="head"><span class="date">2023</span></div>
+        <h3>Serre autonome — Raspberry Pi</h3>
+        <p>Irrigation, ventilation et éclairage pilotés par capteurs, avec des scripts Python qui régulent température et humidité en temps réel.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Raspberry Pi</span><span class="tag">IoT</span></div>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="alt" id="competences">
+<section id="competences">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="kicker">Compétences</div>
       <h2>Boîte à outils</h2>
     </div>
-    <div class="skill-grid">
+    <div class="skill-grid reveal">
+      <div class="skill-group">
+        <div class="label">Systèmes & réseaux</div>
+        <div class="items"><span class="chip">Windows</span><span class="chip">Linux (Ubuntu)</span><span class="chip">Active Directory</span><span class="chip">AppLocker</span><span class="chip">PowerShell</span><span class="chip">Bash</span><span class="chip">VLAN</span><span class="chip">VPN</span><span class="chip">VirtualBox</span></div>
+      </div>
       <div class="skill-group">
         <div class="label">Langages</div>
-        <div class="items">Java · Python · C · PHP · JavaScript · HTML5 · CSS3 · SQL · Bash</div>
+        <div class="items"><span class="chip">Java</span><span class="chip">Python</span><span class="chip">C</span><span class="chip">PHP</span><span class="chip">JavaScript</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">SQL</span></div>
       </div>
       <div class="skill-group">
-        <div class="label">Bases de données</div>
-        <div class="items">PostgreSQL · MySQL · MongoDB · Merise · Schéma UML</div>
+        <div class="label">Bases de données & données</div>
+        <div class="items"><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">MongoDB</span><span class="chip">Merise</span><span class="chip">Schéma en étoile</span><span class="chip">UML</span><span class="chip">Qlik Sense</span></div>
       </div>
       <div class="skill-group">
-        <div class="label">Technologies & méthodes</div>
-        <div class="items">UML · MVC · Design Patterns · Réseaux · Git / GitHub · JUnit</div>
-      </div>
-      <div class="skill-group">
-        <div class="label">Outils</div>
-        <div class="items">IntelliJ · PyCharm · Qlik Sense · Linux (Ubuntu) · VirtualBox</div>
+        <div class="label">Outils & méthodes</div>
+        <div class="items"><span class="chip">Ivanti</span><span class="chip">FreshService</span><span class="chip">Git / GitHub</span><span class="chip">JUnit</span><span class="chip">MVC</span><span class="chip">Design Patterns</span><span class="chip">IntelliJ</span><span class="chip">PyCharm</span></div>
       </div>
     </div>
-    <div class="lang-grid">
+    <div class="lang-grid reveal">
       <div class="lang-item"><b>Français</b><span>Langue maternelle</span><div class="lang-bar"><i style="width:100%"></i></div></div>
       <div class="lang-item"><b>Anglais</b><span>B2 — Avancé</span><div class="lang-bar"><i style="width:70%"></i></div></div>
       <div class="lang-item"><b>Espagnol</b><span>B1 — Intermédiaire</span><div class="lang-bar"><i style="width:50%"></i></div></div>
       <div class="lang-item"><b>Arabe</b><span>A1 — Débutant</span><div class="lang-bar"><i style="width:18%"></i></div></div>
     </div>
+    <div class="soft reveal"><strong>Savoir-être</strong><span class="chip">Rigueur</span><span class="chip">Autonomie</span><span class="chip">Esprit d'équipe</span><span class="chip">Curiosité technique</span><span class="chip">Sens du service</span></div>
   </div>
 </section>
 
 <section id="contact">
   <div class="wrap">
-    <div class="contact-card">
+    <div class="contact-card reveal">
       <div>
         <h2>Discutons de votre besoin</h2>
-        <p>Je recherche une entreprise pour m'accueillir en stage de fin d'année, 14 semaines minimum à partir du 8 mars 2027. N'hésitez pas à me contacter pour en discuter.</p>
+        <p>Je recherche une entreprise pour m'accueillir en stage de 3 à 6 mois à partir du 8 mars 2027. Je réponds rapidement par email ou téléphone.</p>
+        <a class="btn btn-cv" href="CV_Yanis_Ouadah_Stage.pdf" download>Télécharger mon CV (PDF)</a>
       </div>
       <div class="contact-links">
-        <a href="mailto:youadah60@gmail.com">Email <span>youadah60@gmail.com</span></a>
+        <a href="mailto:youadah60@gmail.com?subject=Stage%20-%20Yanis%20Ouadah">Email <span>youadah60@gmail.com</span></a>
         <a href="tel:+33768720793">Téléphone <span>07 68 72 07 93</span></a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/yanis-ouadah-24197632a/" target="_blank" rel="noopener noreferrer"> LinkedIn <span>/in/yanis-ouadah</span> </a>
-        <a href="https://github.com/Yanis-O" target="_blank" rel="noopener">GitHub <span>/Yanis-O</span></a>
+        <a href="https://www.linkedin.com/in/yanis-ouadah-24197632a/" target="_blank" rel="noopener noreferrer">LinkedIn <span>/in/yanis-ouadah</span></a>
+        <a href="https://github.com/Yanis-O" target="_blank" rel="noopener noreferrer">GitHub <span>/Yanis-O</span></a>
       </div>
     </div>
   </div>
 </section>
+</main>
 
-<footer>Yanis Ouadah — Le Blanc-Mesnil (93150) · Permis B</footer>
+<footer>Yanis Ouadah — Le Blanc-Mesnil (93150) · Permis B · © <span id="year">2026</span></footer>
 
+<script>
+(function(){
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Menu mobile
+  var btn = document.querySelector('.menu-btn'), menu = document.getElementById('menu');
+  btn.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  menu.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ menu.classList.remove('open'); btn.setAttribute('aria-expanded', false); }
+  });
+
+  // Lien actif selon la section visible
+  var links = Array.prototype.slice.call(menu.querySelectorAll('a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function spy(){
+    var y = window.scrollY + 120, idx = 0;
+    sections.forEach(function(s, i){ if(s && s.offsetTop <= y) idx = i; });
+    if(window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) idx = sections.length - 1;
+    links.forEach(function(a, i){ a.classList.toggle('active', i === idx); });
+  }
+  window.addEventListener('scroll', spy, {passive:true}); spy();
+
+  // Filtres projets
+  var filters = document.querySelectorAll('.filter'), cards = document.querySelectorAll('.proj-card');
+  filters.forEach(function(f){
+    f.addEventListener('click', function(){
+      var cat = f.dataset.filter;
+      filters.forEach(function(x){ x.setAttribute('aria-pressed', x === f); });
+      cards.forEach(function(c){ c.hidden = !(cat === 'all' || c.dataset.cat.split(' ').indexOf(cat) > -1); });
+    });
+  });
+
+  // Apparition au défilement
+  var els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {threshold:0.12});
+    els.forEach(function(el){ io.observe(el); });
+  } else { els.forEach(function(el){ el.classList.add('in'); }); }
+})();
+</script>
 </body>
 </html>
