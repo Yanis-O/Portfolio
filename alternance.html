@@ -4,7 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yanis Ouadah — Portfolio · Recherche d'alternance 2027</title>
+<meta name="description" content="Yanis Ouadah, étudiant en 3e année de BUT Informatique (IUT de Montreuil). Recherche une alternance pour intégrer un Master à la rentrée 2027 : systèmes & réseaux, développement, données.">
+<meta property="og:title" content="Yanis Ouadah — Alternance Master, rentrée 2027">
+<meta property="og:description" content="Administration systèmes, développement (Java, Python, PHP) et exploitation de données. Alternance en Master à la rentrée 2027.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yanis-o.github.io/Portfolio/alternance.html">
+<meta name="theme-color" content="#0A1422">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A1422'/%3E%3Ctext x='16' y='22' font-family='monospace' font-weight='700' font-size='15' fill='%235FD8E4' text-anchor='middle'%3EYO%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -24,7 +32,10 @@
   --violet-soft:rgba(181,146,232,.12);
 }
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;scroll-padding-top:70px;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:#04141C;padding:8px 12px;z-index:50;font-family:"IBM Plex Mono",monospace;font-size:13px;}
+.skip:focus{left:8px;}
 body{
   margin:0;
   background:
@@ -258,6 +269,31 @@ table.matrix .dash{color:var(--line);}
 .legend-row i.c2{background:var(--amber);}
 .legend-row i.c3{background:var(--violet);}
 
+/* HIGHLIGHT (stage) */
+.highlight{background:var(--card);border:1px solid var(--line);border-top:2px solid var(--amber);padding:28px 30px;}
+.highlight .top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 20px;align-items:baseline;}
+.highlight h3{font-size:18.5px;font-weight:600;}
+.highlight h3 .org{color:var(--accent);}
+.highlight .date{color:var(--muted);font-family:"IBM Plex Mono",monospace;font-size:12px;}
+.highlight .env{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;}
+.wins{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;}
+.win{background:var(--bg-alt);border:1px solid var(--line-soft);padding:16px;}
+.win b{display:block;font-family:"Space Grotesk",sans-serif;font-size:24px;color:var(--accent);line-height:1.1;}
+.win p{margin:6px 0 0;color:var(--ink-soft);font-size:13.5px;line-height:1.5;}
+
+/* FILTERS */
+.filters{display:inline-flex;flex-wrap:wrap;border:1px solid var(--line);margin-bottom:24px;}
+.filter{border:none;border-right:1px solid var(--line);background:transparent;cursor:pointer;font-family:"IBM Plex Mono",monospace;font-size:12.8px;color:var(--ink-soft);padding:9px 16px;}
+.filter:last-child{border-right:none;}
+.filter:hover{color:var(--ink);}
+.filter[aria-pressed="true"]{background:var(--accent);color:#04141C;}
+.proj-card[hidden]{display:none;}
+.star{position:absolute;top:10px;right:12px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--amber);border:1px solid var(--amber-soft);background:var(--amber-soft);padding:2px 7px;}
+.soft{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.soft .label{font-family:"IBM Plex Mono",monospace;color:var(--accent);font-size:12.5px;margin-right:6px;}
+.contact-card .btn{margin-top:20px;}
+.menu-btn{display:none;background:transparent;border:1px solid var(--line);color:var(--ink);font-family:"IBM Plex Mono",monospace;font-size:12.8px;padding:7px 11px;cursor:pointer;}
+
 /* SKILLS */
 .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 40px;}
 .skill-group .label{font-family:"IBM Plex Mono",monospace;color:var(--accent);font-weight:500;font-size:12.5px;margin-bottom:9px;}
@@ -298,22 +334,35 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
   .skill-grid{grid-template-columns:1fr;}
   .lang-grid{grid-template-columns:repeat(2,1fr);}
   .contact-card{grid-template-columns:1fr;padding:32px 24px;}
-  nav ul{display:none;}
+  .menu-btn{display:block;}
+  nav .inner{position:relative;}
+  nav ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line-soft);padding:6px 20px 14px;}
+  nav ul.open{display:flex;}
+  nav ul a{display:block;padding:10px 6px;}
+  .wins{grid-template-columns:1fr;}
+  .highlight{padding:22px 20px;}
+  .filters{display:flex;}
   .lecture-tabs{width:100%;}
   .lecture-tab{flex:1;text-align:center;padding:10px 6px;}
   .meta-strip{flex-direction:column;gap:12px;}
   .meta-strip div{border-right:none;margin-right:0;}
 }
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#apropos">Aller au contenu</a>
 
 <nav>
   <div class="inner">
     <div class="brand">Yanis <span>Ouadah</span></div>
-    <ul>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">menu</button>
+    <ul id="menu">
       <li><a href="#accueil" class="current">accueil</a></li>
       <li><a href="#apropos">a-propos</a></li>
+      <li><a href="#stage">stage</a></li>
       <li><a href="#parcours">parcours</a></li>
       <li><a href="#projets">projets</a></li>
       <li><a href="#competences-but">competences-but</a></li>
@@ -329,14 +378,15 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
       <div>
         <div class="badge"><span class="dot"></span>disponible — alternance, rentrée 2027</div>
         <h1>Je construis des systèmes qui font <em>circuler la donnée</em>.</h1>
-        <p class="lead">Étudiant en 3ᵉ année de BUT Informatique à l'IUT de Montreuil, je recherche une alternance pour intégrer un Master à la rentrée 2027 — entre optimisation des flux réseaux et exploitation de données.</p>
+        <p class="lead">Étudiant en 3ᵉ année de BUT Informatique à l'IUT de Montreuil, je recherche une alternance pour intégrer un Master à la rentrée 2027 — en administration systèmes & réseaux, développement ou exploitation de données.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="mailto:youadah60@gmail.com">Écrire un email</a>
+          <a class="btn btn-primary" href="CV_Yanis_Ouadah_Alternance.pdf" download>↓ Télécharger mon CV</a>
+          <a class="btn btn-ghost" href="mailto:youadah60@gmail.com?subject=Alternance%20-%20Yanis%20Ouadah">Écrire un email</a>
           <a class="btn btn-ghost" href="https://www.linkedin.com/in/yanis-ouadah-24197632a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a class="btn btn-ghost" href="https://github.com/Yanis-O" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
-      <div class="hero-graphic">
+      <div class="hero-graphic" aria-hidden="true">
 <svg viewBox="0 0 360 290" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g stroke="#243B57" stroke-width="1.2">
     <line x1="40" y1="60" x2="150" y2="40"/>
@@ -377,7 +427,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
   <div class="wrap">
     <div class="meta-strip">
       <div><strong>recherche</strong>alternance, rythme à définir</div>
-      <div><strong>rentrée</strong>2027</div>
+      <div><strong>rentrée</strong>2027 · diplôme BUT juin 2027</div>
       <div><strong>localisation</strong>Le Blanc-Mesnil (93) — Île-de-France</div>
       <div><strong>permis</strong>B</div>
     </div>
@@ -387,31 +437,53 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
 <section id="apropos">
   <div class="wrap">
     <div class="section-head">
-      <h2>Étudiant en BUT Informatique, entre réseaux et données</h2>
+      <span class="section-tag">a-propos</span>
+      <h2>Un profil technique et terrain</h2>
     </div>
     <div class="about-grid">
-      <p>
-        Actuellement en 3ᵉ année de BUT Informatique à l'IUT de Montreuil (Université Paris 8),
-        je construis une double expertise entre l'optimisation des flux réseaux et l'exploitation
-        de données — modélisation, bases de données relationnelles, dashboards. Un stage chez
-        XELIANS m'a confronté à des problématiques réseau et infrastructure en conditions réelles,
-        aux côtés de techniciens, d'administrateurs systèmes et d'ingénieurs réseaux. À l'aise aussi
-        bien sur des projets de développement que sur des missions de support technique, je code
-        en Java, Python, PHP et SQL, et j'aime aller du schéma de données jusqu'à l'interface qui
-        l'exploite.
-      </p>
+      <div>
+        <p>Je suis en 3ᵉ année de BUT Informatique à l'IUT de Montreuil (Université Paris 8) et je souhaite poursuivre en Master en alternance à la rentrée 2027. Mon premier stage, chez Xelians Archivage, m'a plongé dans l'administration d'un vrai parc : automatisation PowerShell, sécurisation de postes Linux, Active Directory et support utilisateurs.</p>
+        <p>À côté, je développe en Java, Python, PHP et SQL : applications web, architecture MVC testée, entrepôt de données et tableaux de bord. J'aime comprendre un système de bout en bout, de la base de données jusqu'à l'outil qu'on utilise au quotidien.</p>
+        <p>En parallèle de mes études, je travaille de nuit et le week-end (restauration, aéroport de Roissy) : le rythme de l'alternance ne me fait pas peur, et j'y ai appris la fiabilité, la gestion d'équipe et le respect des délais.</p>
+      </div>
       <div class="stat-list">
-        <div class="stat"><b>10+</b><span>projets techniques menés, du script Raspberry Pi au dashboard Qlik Sense</span></div>
-        <div class="stat"><b>3</b><span>expériences professionnelles en parallèle des études</span></div>
-        <div class="stat"><b>4</b><span>langues pratiquées, dont l'anglais en B2</span></div>
+        <div class="stat"><b>100+ postes</b><span>inventoriés automatiquement par script PowerShell pendant mon stage</span></div>
+        <div class="stat"><b>10 projets</b><span>du script Raspberry Pi au dashboard Qlik Sense</span></div>
+        <div class="stat"><b>3 expériences</b><span>professionnelles en parallèle des études</span></div>
+        <div class="stat"><b>Anglais B2</b><span>+ espagnol B1, arabe A1</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="alt" id="parcours">
+<section class="alt" id="stage">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">experience-phare</span>
+      <h2>Stage d'assistant informatique</h2>
+      <p>Au service informatique d'un acteur de l'archivage, sur un parc en production.</p>
+    </div>
+    <div class="highlight">
+      <div class="top">
+        <h3>Assistant informatique — <span class="org">Xelians Archivage, Villeneuve-la-Garenne</span></h3>
+        <span class="date">avr. – juin 2026</span>
+      </div>
+      <div class="env">
+        <span class="tag">Windows</span><span class="tag">Ubuntu 24.04</span><span class="tag">Active Directory</span><span class="tag">PowerShell</span><span class="tag">Ivanti</span><span class="tag">AppLocker</span><span class="tag">FreshService</span>
+      </div>
+      <div class="wins">
+        <div class="win"><b>100+</b><p>postes inventoriés via un script PowerShell déployé avec Ivanti, pour bâtir la liste blanche AppLocker.</p></div>
+        <div class="win"><b>10+</b><p>postes Ubuntu déployés et sécurisés (BitDefender, EDR, FortiClient), intégrés à l'Active Directory.</p></div>
+        <div class="win"><b>N1</b><p>tickets de support résolus sur FreshService : Sage, bibliothèques Python, changements de VLAN.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="parcours">
   <div class="wrap-narrow">
     <div class="section-head">
+      <span class="section-tag">parcours</span>
       <h2>Formation & expériences professionnelles</h2>
     </div>
     <div class="timeline">
@@ -419,28 +491,30 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
         <div class="date">2024 – 2027 · 3ᵉ année en cours</div>
         <h3>BUT Informatique — <span class="org">IUT de Montreuil, Université Paris 8</span></h3>
         <ul>
-          <li>Algorithmique, programmation, réseaux, bases de données</li>
-          <li>PostgreSQL, MySQL, MongoDB, Merise, schéma UML</li>
-        </ul>
-      </div>
-      <div class="tl-item">
-        <div class="date">Avril – Juin 2026</div>
-        <h3>Stage Assistant Informatique — <span class="org">XELIANS, Villeneuve-la-Garenne</span></h3>
-        <ul>
-          <li>Étude et refonte complète du système de transfert de fichiers interne et externe</li>
-          <li>Analyse préalable des besoins pour optimiser la circulation et la sécurité des données</li>
-          <li>Collaboration quotidienne avec techniciens, admins systèmes et ingénieurs réseaux</li>
+          <li>Diplôme prévu : juin 2027</li>
+          <li>Algorithmique, programmation, réseaux, bases de données, développement logiciel</li>
         </ul>
       </div>
       <div class="tl-item">
         <div class="date">Depuis juin 2026</div>
-        <h3>Manutentionnaire / Livreur — <span class="org">Économat AREAS, Aéroport Roissy CDG</span></h3>
-        <ul><li>Permis T et titre de circulation aéroportuaire (TCA) ; préparation et livraison de commandes dans les délais</li></ul>
+        <h3>Manutentionnaire / Livreur — <span class="org">Économat AREAS, Aéroport Roissy-CDG</span></h3>
+        <ul>
+          <li>Livraison de 5 à 6 points de vente en zone aéroportuaire réglementée, avec des délais stricts</li>
+          <li>Permis T (conduite côté piste) et titre de circulation aéroportuaire (TCA)</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="date">Avril – Juin 2026</div>
+        <h3>Stage assistant informatique — <span class="org">Xelians Archivage</span></h3>
+        <ul><li>Automatisation PowerShell, sécurisation de postes Ubuntu, Active Directory, support N1 (<a href="#stage">détails</a>)</li></ul>
       </div>
       <div class="tl-item">
         <div class="date">Sept. 2025 – Sept. 2026</div>
-        <h3>Équipier polyvalent — <span class="org">McDonald's, Paris Madeleine</span></h3>
-        <ul><li>Polyvalence caisse / cuisine / salle de nuit ; missions de responsable d'équipe (inventaires, caisse, pertes)</li></ul>
+        <h3>Équipier polyvalent (nuit) — <span class="org">McDonald's, Paris Madeleine</span></h3>
+        <ul>
+          <li>100 à 500 clients servis par nuit sur les postes caisse, cuisine et salle</li>
+          <li>Encadrement de 3 à 4 équipiers, inventaires, comptages de caisse et suivi des pertes</li>
+        </ul>
       </div>
       <div class="tl-item">
         <div class="date">2021 – 2024</div>
@@ -451,15 +525,22 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
   </div>
 </section>
 
-<section id="projets">
+<section class="alt" id="projets">
   <div class="wrap">
     <div class="section-head">
+      <span class="section-tag">projets</span>
       <h2>Projets techniques</h2>
-      <p>Une sélection de projets menés en autonomie ou en groupe, du schéma de données au déploiement.</p>
+      <p>Une sélection de projets menés seul ou en équipe. Filtrez par domaine.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filtrer les projets">
+      <button class="filter" data-filter="all" aria-pressed="true">tous</button>
+      <button class="filter" data-filter="dev" aria-pressed="false">développement</button>
+      <button class="filter" data-filter="data" aria-pressed="false">données</button>
+      <button class="filter" data-filter="sys" aria-pressed="false">systèmes & iot</button>
     </div>
     <div class="proj-grid">
 
-      <div class="proj-card">
+      <div class="proj-card" data-cat="data">
         <div class="proj-visual">
           <svg viewBox="0 0 64 64"><ellipse cx="32" cy="14" rx="18" ry="7"/><path d="M14 14v20c0 3.9 8.1 7 18 7s18-3.1 18-7V14"/><path d="M14 27c0 3.9 8.1 7 18 7s18-3.1 18-7"/></svg>
         </div>
@@ -471,7 +552,8 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
         </div>
       </div>
 
-      <div class="proj-card">
+      <div class="proj-card" data-cat="dev data">
+        <span class="star">★ projet phare</span>
         <div class="proj-visual">
           <svg viewBox="0 0 64 64"><path d="M20 14h20l-3 26a4 4 0 0 1-4 3.6h-6a4 4 0 0 1-4-3.6L20 14z"/><path d="M40 18h5a6 6 0 0 1 0 12h-4"/><circle cx="16" cy="50" r="3"/><circle cx="32" cy="53" r="3"/><circle cx="48" cy="50" r="3"/><path d="M16 47v-3M32 50v-3M48 47v-3"/></svg>
         </div>
@@ -483,7 +565,8 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
         </div>
       </div>
 
-      <div class="proj-card">
+      <div class="proj-card" data-cat="dev">
+        <span class="star">★ projet phare</span>
         <div class="proj-visual">
           <svg viewBox="0 0 64 64"><rect x="14" y="9" width="36" height="12"/><rect x="14" y="26" width="36" height="12"/><rect x="14" y="43" width="36" height="12"/><path d="M32 21v5M32 38v5"/></svg>
         </div>
@@ -495,7 +578,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
         </div>
       </div>
 
-      <div class="proj-card">
+      <div class="proj-card" data-cat="sys">
         <div class="proj-visual">
           <svg viewBox="0 0 64 64"><rect x="8" y="12" width="48" height="34"/><path d="M16 22l8 6-8 6M28 34h10"/><circle cx="48" cy="50" r="6.5"/><path d="M48 41.5v3M48 55.5v3M39.5 50h3M53.5 50h3M42.3 44.3l2.1 2.1M55.6 57.6l-2.1-2.1M42.3 55.7l2.1-2.1M55.6 42.4l-2.1 2.1"/></svg>
         </div>
@@ -507,7 +590,8 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
         </div>
       </div>
 
-      <div class="proj-card">
+      <div class="proj-card" data-cat="data">
+        <span class="star">★ projet phare</span>
         <div class="proj-visual">
           <svg viewBox="0 0 64 64"><path d="M8 26 32 10l24 16v28H8V26z"/><rect x="18" y="34" width="6" height="14"/><rect x="29" y="28" width="6" height="20"/><rect x="40" y="20" width="6" height="28"/></svg>
         </div>
@@ -519,7 +603,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
         </div>
       </div>
 
-      <div class="proj-card">
+      <div class="proj-card" data-cat="data">
         <div class="proj-visual">
           <svg viewBox="0 0 64 64"><path d="M32 8 54 22 46 48 18 48 10 22Z"/><path d="M32 32 32 8M32 32 54 22M32 32 46 48M32 32 18 48M32 32 10 22"/><circle cx="32" cy="16" r="2" fill="currentColor"/><circle cx="44" cy="26" r="2" fill="currentColor"/><circle cx="38" cy="42" r="2" fill="currentColor"/></svg>
         </div>
@@ -531,7 +615,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
         </div>
       </div>
 
-      <div class="proj-card">
+      <div class="proj-card" data-cat="dev">
         <div class="proj-visual">
           <svg viewBox="0 0 64 64"><circle cx="24" cy="24" r="14"/><path d="M19 20a5 5 0 1 1 7 4.6c-1.8.9-2 2-2 3.4"/><circle cx="24" cy="33" r="0.6" fill="currentColor"/><path d="M44 14h12M44 22h12M44 30h8"/></svg>
         </div>
@@ -543,7 +627,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
         </div>
       </div>
 
-      <div class="proj-card">
+      <div class="proj-card" data-cat="dev">
         <div class="proj-visual">
           <svg viewBox="0 0 64 64"><rect x="8" y="8" width="48" height="48"/><circle cx="18" cy="18" r="3.4"/><circle cx="28" cy="18" r="3.4"/><circle cx="38" cy="18" r="3.4"/><circle cx="48" cy="18" r="3.4"/><circle cx="18" cy="46" r="3.4" fill="currentColor"/><circle cx="28" cy="38" r="3.4" fill="currentColor"/><circle cx="38" cy="30" r="3.4" fill="currentColor"/><circle cx="48" cy="46" r="3.4"/></svg>
         </div>
@@ -555,7 +639,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
         </div>
       </div>
 
-      <div class="proj-card">
+      <div class="proj-card" data-cat="sys">
         <div class="proj-visual">
           <svg viewBox="0 0 64 64"><path d="M32 54V30"/><path d="M32 34c-10 0-14-8-14-14 8 0 14 4 14 14zM32 30c10 0 14-8 14-14-8 0-14 4-14 14z"/><rect x="20" y="54" width="24" height="5"/><circle cx="46" cy="14" r="4"/><path d="M46 8v-2M46 22v2M40.5 14h-2M53.5 14h-2"/></svg>
         </div>
@@ -567,7 +651,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
         </div>
       </div>
 
-      <div class="proj-card">
+      <div class="proj-card" data-cat="dev">
         <div class="proj-visual">
           <svg viewBox="0 0 64 64"><rect x="10" y="36" width="14" height="18"/><rect x="25" y="24" width="14" height="30"/><rect x="40" y="42" width="14" height="12"/><path d="M32 6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></svg>
         </div>
@@ -583,9 +667,10 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
 </section>
 
 <!-- ============ PORTFOLIO BUT — DOUBLE LECTURE ============ -->
-<section class="alt" id="competences-but">
+<section id="competences-but">
   <div class="wrap">
     <div class="section-head">
+      <span class="section-tag">competences-but</span>
       <h2>Compétences et projets, une double lecture</h2>
       <p>Conformément au référentiel national du BUT Informatique, ce portfolio se lit soit par les trois compétences du diplôme, soit par les projets qui les mobilisent — avec un tableau croisé pour relier les deux.</p>
     </div>
@@ -667,8 +752,9 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
             <div class="label">preuves — projets mobilisés</div>
             <div class="comp-chip-row">
               <button class="comp-chip" data-jump="p11">Stage XELIANS</button>
+              <button class="comp-chip" data-jump="p3">Création d'un jeu 2D — architecture logicielle</button>
             </div>
-            <p style="margin-top:10px;color:var(--muted);font-size:13px;">Cette compétence s'est surtout construite pendant le stage, au contact quotidien de techniciens, d'administrateurs systèmes et d'ingénieurs réseaux — les autres projets ci-contre ont été menés en solo.</p>
+            <p style="margin-top:10px;color:var(--muted);font-size:13px;">Cette compétence s'est surtout construite pendant le stage, au contact quotidien de techniciens, d'administrateurs systèmes et d'ingénieurs réseaux, et sur le jeu 2D développé en équipe sous Git. Mes missions de responsable d'équipe chez McDonald's (3 à 4 équipiers) l'ont aussi renforcée.</p>
           </div>
         </div>
 
@@ -683,7 +769,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
 
         <div class="pcard-but" id="p2"><div class="date">Nov. 2025 – Jan. 2026</div><h4>Plateforme de gestion de buvette associative</h4><div class="pills"><span class="comp-pill c1">C1 · Données</span><span class="comp-pill c2">C2 · Projet</span></div></div>
 
-        <div class="pcard-but" id="p3"><div class="date">Mai 2024 – Oct. 2025</div><h4>Création d'un jeu 2D — architecture logicielle</h4><div class="pills"><span class="comp-pill c2">C2 · Projet</span></div></div>
+        <div class="pcard-but" id="p3"><div class="date">Mai 2024 – Oct. 2025</div><h4>Création d'un jeu 2D — architecture logicielle</h4><div class="pills"><span class="comp-pill c2">C2 · Projet</span><span class="comp-pill c3">C3 · Équipe</span></div></div>
 
         <div class="pcard-but" id="p4"><div class="date">2025</div><h4>Configuration poste Linux — VM</h4><div class="pills"><span class="comp-pill c1">C1 · Données</span></div></div>
 
@@ -719,7 +805,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
           <tbody>
             <tr><td>Conception de base de données relationnelle</td><td class="center"><span class="mark c1">✓</span></td><td class="center"><span class="dash">—</span></td><td class="center"><span class="dash">—</span></td></tr>
             <tr><td>Plateforme de gestion de buvette associative</td><td class="center"><span class="mark c1">✓</span></td><td class="center"><span class="mark c2">✓</span></td><td class="center"><span class="dash">—</span></td></tr>
-            <tr><td>Création d'un jeu 2D — architecture logicielle</td><td class="center"><span class="dash">—</span></td><td class="center"><span class="mark c2">✓</span></td><td class="center"><span class="dash">—</span></td></tr>
+            <tr><td>Création d'un jeu 2D — architecture logicielle</td><td class="center"><span class="dash">—</span></td><td class="center"><span class="mark c2">✓</span></td><td class="center"><span class="mark c3">✓</span></td></tr>
             <tr><td>Configuration poste Linux — VM</td><td class="center"><span class="mark c1">✓</span></td><td class="center"><span class="dash">—</span></td><td class="center"><span class="dash">—</span></td></tr>
             <tr><td>Entrepôt de données & Visualisation</td><td class="center"><span class="mark c1">✓</span></td><td class="center"><span class="dash">—</span></td><td class="center"><span class="dash">—</span></td></tr>
             <tr><td>Portfolio de compétences Qlik Sense</td><td class="center"><span class="mark c1">✓</span></td><td class="center"><span class="dash">—</span></td><td class="center"><span class="dash">—</span></td></tr>
@@ -741,27 +827,28 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
   </div>
 </section>
 
-<section id="outils">
+<section class="alt" id="outils">
   <div class="wrap">
     <div class="section-head">
+      <span class="section-tag">outils</span>
       <h2>Langages, technologies & méthodes</h2>
     </div>
     <div class="skill-grid">
       <div class="skill-group">
+        <div class="label">systèmes & réseaux</div>
+        <div class="items">Windows · Linux (Ubuntu) · Active Directory · AppLocker · PowerShell · Bash · VLAN · VPN · VirtualBox</div>
+      </div>
+      <div class="skill-group">
         <div class="label">langages</div>
-        <div class="items">Java · Python · C · PHP · JavaScript · HTML5 · CSS3 · SQL · Bash</div>
+        <div class="items">Java · Python · C · PHP · JavaScript · HTML5 · CSS3 · SQL</div>
       </div>
       <div class="skill-group">
-        <div class="label">bases de données</div>
-        <div class="items">PostgreSQL · MySQL · MongoDB · Merise · Schéma UML</div>
+        <div class="label">bases de données & données</div>
+        <div class="items">PostgreSQL · MySQL · MongoDB · Merise (MCD, MLD, MPD) · Schéma en étoile · UML · Qlik Sense</div>
       </div>
       <div class="skill-group">
-        <div class="label">technologies & méthodes</div>
-        <div class="items">UML · MVC · Design Patterns · Réseaux · Git / GitHub · JUnit</div>
-      </div>
-      <div class="skill-group">
-        <div class="label">outils</div>
-        <div class="items">IntelliJ · PyCharm · Qlik Sense · Linux (Ubuntu) · VirtualBox</div>
+        <div class="label">outils & méthodes</div>
+        <div class="items">Ivanti · FreshService · Git / GitHub · JUnit · MVC · Design Patterns · IntelliJ · PyCharm</div>
       </div>
     </div>
     <div class="lang-grid">
@@ -770,6 +857,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
       <div class="lang-item"><b>Espagnol</b><span>B1 — intermédiaire</span><div class="lang-bar"><i style="width:50%"></i></div></div>
       <div class="lang-item"><b>Arabe</b><span>A1 — débutant</span><div class="lang-bar"><i style="width:18%"></i></div></div>
     </div>
+    <div class="soft"><span class="label">savoir-être</span><span class="tag">rigueur</span><span class="tag">autonomie</span><span class="tag">esprit d'équipe</span><span class="tag">curiosité technique</span><span class="tag">sens du service</span></div>
   </div>
 </section>
 
@@ -778,10 +866,11 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
     <div class="contact-card">
       <div>
         <h2>Discutons de votre besoin</h2>
-        <p>Je recherche une entreprise pour m'accueillir en alternance à partir de la rentrée 2027, dans le cadre d'un Master. N'hésitez pas à me contacter pour en discuter.</p>
+        <p>Je recherche une entreprise pour m'accueillir en alternance à partir de la rentrée 2027, dans le cadre d'un Master. Je réponds rapidement par email ou téléphone.</p>
+        <a class="btn btn-primary" href="CV_Yanis_Ouadah_Alternance.pdf" download>↓ Télécharger mon CV (PDF)</a>
       </div>
       <div class="contact-links">
-        <a href="mailto:youadah60@gmail.com">email <span>youadah60@gmail.com</span></a>
+        <a href="mailto:youadah60@gmail.com?subject=Alternance%20-%20Yanis%20Ouadah">email <span>youadah60@gmail.com</span></a>
         <a href="tel:+33768720793">téléphone <span>07 68 72 07 93</span></a>
         <a href="https://www.linkedin.com/in/yanis-ouadah-24197632a/" target="_blank" rel="noopener noreferrer">linkedin <span>/in/yanis-ouadah</span></a>
         <a href="https://github.com/Yanis-O" target="_blank" rel="noopener">github <span>/Yanis-O</span></a>
@@ -790,7 +879,7 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
   </div>
 </section>
 
-<footer>Yanis Ouadah — Le Blanc-Mesnil (93150) · Permis B</footer>
+<footer>Yanis Ouadah — Le Blanc-Mesnil (93150) · Permis B · © <span id="year">2026</span></footer>
 
 <script>
 (function(){
@@ -825,13 +914,36 @@ footer{padding:26px 0 40px 0;color:var(--muted);font-size:12px;text-align:center
     });
   });
 
+  // menu mobile
+  var mbtn = document.querySelector('.menu-btn'), menu = document.getElementById('menu');
+  mbtn.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    mbtn.setAttribute('aria-expanded', open);
+  });
+  menu.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ menu.classList.remove('open'); mbtn.setAttribute('aria-expanded', false); }
+  });
+
+  // filtres projets
+  var filters = document.querySelectorAll('.filter'), cards = document.querySelectorAll('.proj-card');
+  filters.forEach(function(f){
+    f.addEventListener('click', function(){
+      var cat = f.getAttribute('data-filter');
+      filters.forEach(function(x){ x.setAttribute('aria-pressed', x === f); });
+      cards.forEach(function(c){ c.hidden = !(cat === 'all' || c.getAttribute('data-cat').split(' ').indexOf(cat) > -1); });
+    });
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
   // active nav link highlight on scroll
-  var navLinks = document.querySelectorAll('nav a');
+  var navLinks = document.querySelectorAll('nav ul a');
   var sections = Array.prototype.slice.call(document.querySelectorAll('section, header.hero'));
   window.addEventListener('scroll', function(){
     var pos = window.scrollY + 120;
     var current = sections[0];
-    sections.forEach(function(s){ if(s.offsetTop <= pos) current = s; });
+    sections.forEach(function(s){ if(s.id && s.offsetTop <= pos) current = s; });
+    if(window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) current = document.getElementById('contact');
     navLinks.forEach(function(a){
       a.classList.toggle('current', a.getAttribute('href') === '#' + current.id);
     });
